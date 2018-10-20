@@ -1,37 +1,36 @@
-title: Hello, world! I'm David Freeman
+# Profile information
+name: Fresh
+title: Fresh - Free Jekyll Theme
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 permalink: ':title/'
-baseurl: "/flexible-jekyll" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+baseurl: "/fresh" # the subpath of your site, e.g. /blog
+url: "artemsheludko.pw" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Author Settings
-author: David Freeman # add your name
-author-img: david-freeman.jpg # add your photo
-about-author: I am a web developer focusing on front-end development. Always hungry to keep learning. # add description
-social-twitter: # add your Twitter handle
-social-facebook: # add your Facebook handle
-social-github: artemsheludko # add your Github handle
-social-linkedin: # add your Linkedin handle
-social-email: # add your Email address
+# Social
+facebook: #Add your Facebook
+twitter: #Add your Twitter
+google-plus: #Add your Google+
+github: #Add your Github
 
-# Disqus
-discus-identifier: mr-brown # add your discus identifier
+# Contact form
+email: #your-email@domain.com
 
-# Tracker
-analytics: # Google Analytics
+# Comments
+discus-identifier: # Add your Disqus identifier
 
-# Build Settings
+# Paginate
+paginate: 5
+paginate_path: /page:num/
+
+# Build settings
 markdown: kramdown
-plugins:
-  - jekyll-sitemap
+gems:
+  - jekyll-feed
   - jekyll-paginate
-  - jemoji
-
-paginate: 8
-paginate_path: "/page/:num"
-
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+include: [_pages]
