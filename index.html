@@ -1,22 +1,13 @@
 ---
-bg: "rails.jpg"
-layout: default
-crawlertitle: "Liu-Cheng Xu"
-title: "Voyager"
-summary: "Life is a long road"
 ---
 
-<article class="index-page">
+<ul class="list pa0">
   {% for post in site.posts %}
-    <div class="list-item">
-      <div class='list-date'>
-        <small>{{ post.date | date_to_string }}</small>
-      </div>
-      <div class="list-left">
-        <a href="{{ post.url | prepend: site.baseurl }}"><i style="padding-right:4px;"> » </i>{{ post.title }}
-        <small class="category">{{ post.tag }}</small>
-        </a>
-      </div>
-    </div>
+  <li class="mv2">
+    <a href="{{ site.url }}{{ post.url }}" class="db pv1 link blue hover-mid-gray">
+      <time class="fr silver ttu">{{ post.date | date_to_string }} </time>
+      {{ post.title }}
+    </a>
+  </li>
   {% endfor %}
-</article>
+</ul>

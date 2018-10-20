@@ -1,31 +1,9 @@
 ---
-layout: page
-title: "About"
-crawlertitle: "brief description of the author"
-permalink: /about/
-summary: "About me"
-active: about
+title: About me
 ---
 
-<img name='name_cn' style="width=80px; height:60px;"  src="{{ site.images }}/name_cn.png" />
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Donec elementum ligula eu sapien consequat eleifend.
 
-### Liu-Cheng Xu
+Donec nec dolor erat, condimentum sagittis sem. Praesent porttitor porttitor risus, dapibus rutrum ipsum gravida et. Integer lectus nisi, facilisis sit amet eleifend nec, pharetra ut augue. Integer quam nunc, consequat nec egestas ac, volutpat ac nisi.
 
-Email: xuliuchengxlc#gmail.com
-
-You can also find me here:
-
-- [GitHub](https://github.com/liuchengxu)
-- [CSDN](http://blog.csdn.net/simple_the_best)
-
-### Biography
-
-I received my B.Sc. degree in Computer Science and Technology in June 2016 from Shenzhen University.
-
-### Research Interest
-
-Currently I am focusing on **Blockchain**.
-
-Previously I learning about **machine learning** and **data mining**. For applications, I am also interested in the following areas:
-
-- recommender system
+Find me on [GitHub](https://github.com/muan) or [Twitter](https://twitter.com/muanchiou).
