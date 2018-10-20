@@ -1,104 +1,102 @@
----
-layout: default
-home-title: H2O Theme For Jekyll
-description: 或许是最漂亮的Jekyll主题
----
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Liu-Cheng Xu</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700' rel='stylesheet' type='text/css'>
+        <style>
+            html, body {
+                overflow: hidden;
+                margin: 0;
+            }
+            body {
+                font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
+                color: #333;
+            }
+            #wrapper {
+                position: absolute;
+                left: 0;
+                width: 320px;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                margin-left: -160px;
+                margin-top: -160px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+            h1 {
+                font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+                font-weight: 700;
+                font-size: 25px;
+                letter-spacing: 6px;
+                text-transform: uppercase;
+                margin: 12px 0;
+                left: 4px;
+            }
+            h2 {
+                color: #999;
+                font-weight: normal;
+                font-size: 15px;
+                letter-spacing: .12em;
+                margin-bottom: 30px;
+                left: 3px;
+            }
+            h1, h2 {
+                position: relative;
+            }
+            p {
+                font-size: 14px;
+                line-height: 2em;
+                margin: 0;
+                letter-spacing: 2px;
+            }
+            canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+            }
+            a {
+                color: #999;
+                text-decoration: none;
+                transition: color .2s ease;
+            }
+            a:hover {
+                color: #f33;
+            }
+        </style>
+        <script type="text/javascript">
 
-{% include header.html %}
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-73260325-1']);
+          _gaq.push(['_setDomainName', 'liuchengxu.org']);
+          _gaq.push(['_trackPageview']);
 
-<div
-    class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}"
-    data-theme="{{ site.theme-color }}"
-    style="{% if page.header-img %}background: url({{ page.header-img | prepend: site.baseurl }}) no-repeat center center; background-size: cover;{% endif %}"
->
-    <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
-</div>
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
 
-<main class="g-container home-content">
-    <div class="article-list">
-        {% for post in paginator.posts %}
-            <article class="article-item">
-                {% if post.cover %}
-                <div class="post-cover">
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                    <img src="{{ post.cover }}" href="{{ post.url | prepend: site.baseurl }}" alt="">
-                </div>
-                {% endif %}
-                <section class="post-preview">
-                    <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                    <h2 class="post-title">{{ post.title }}</h2>
-                    {% if post.subtitle %}
-                    <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-                    {% endif %}
-                    {% if post.subtitle.size==0 or post.subtitle==nil %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 126}}</p>
-                    {% endif %}
-                </section>
-                <footer class="post-meta">
-                    <div class="post-tags">
-                        {% if post.tags.size > 0 %}
-                            {% for tag in post.tags  %}
-                            <a href={{ "tags.html#" | append: tag | pretend: site.baseurl}} class="post-tag">{{ tag }}</a>
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <time class="post-date" datetime="{{ post.date | date:"%y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-                </footer>
-            </article>
-        {% endfor %}
-
-        {% if paginator.total_pages > 1 %}
-            {% include pageNav.html %}
-        {% endif %}
-
-    </div>
-
-    <aside class="g-sidebar-wrapper">
-        <div class="g-sidebar">
-            <section class="author-card">
-                <div class="avatar">
-                    <img src="{{ site.avatar | prepend: site.baseurl }}" alt="">
-                </div>
-                <div class="author-name" rel="author">{{ site.author }}</div>
-                <div class="bio">
-                    <p>{{ site.bio }}</p>
-                </div>
-                {% if site.sns.size > 0 %}
-                <ul id="sns-links" class="sns-links">
-                    {% for s in site.sns %}
-                    <li>
-                        <a href="{{ s[1] }}" target="_blank">
-                            <i class="iconfont icon-{{ s[0] }}"></i>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </section>
-
-            {% if site.recommend-tags and site.tags.size>0 %}
-            <section class="tags-card">
-                {% for tag in site.tags %}
-                    {% if forloop.index > site.recommend-condition-size %}
-                        {% break %}
-                    {% endif %}
-                    <a href="{{ "tags.html#" | append: tag[0] | prepend: site.baseurl }}" class="tag">{{ tag[0]}}</a>
-                {% endfor %}
-            </section>
-            {% endif %}
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Liu-Cheng Xu</h1>
+            <h2>Focusing on Blockchain currently</h2>
+            <p><a href="https://liuchengxu.github.io/home" target="_blank">Blog</a></p>
+            <p><a href="https://twitter.com/_liuchengxu" target="_blank">Twitter</a></p>
+            <p><a href="https://github.com/liuchengxu" target="_blank">Github</a></p>
+            <p><a href="https://liuchengxu.github.io/blog-cn" target="_blank">博客</a></p>
+            <p><a href="https://www.jianshu.com/u/daf68451f175" target="_blank">简书</a></p>
+            <p><a href="https://www.zhihu.com/people/simple_the_best/" target="_blank">知乎</a></p>
         </div>
-
-        {% if site.search %}
-        <div class="search-card">
-            <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
-            <i class="iconfont icon-search"></i>
-            <div class="search_result"></div>
-        </div>
-        {% endif %}
-
-    </aside>
-
-</main>
-
-{% include footer.html %}
+        <canvas></canvas>
+    </body>
+</html>

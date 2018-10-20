@@ -1,20 +1,18 @@
-<!--
-Author: Ray-Eldath
-refer to:
- - http://docs.mathjax.org/en/latest/options/index.html
--->
-{% if site.mathjax %}
-	<script type="text/javascript" async src="https://cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-	
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-		jax: ["input/TeX", "output/HTML-CSS"],
-		tex2jax: {
-			inlineMath: [ ["$", "$"] ],
-			displayMath: [ ["$$", "$$"] ],
-			skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-		},
-		"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-      });
-    </script>
-{% endif %}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+       tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      },
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+     });
+     MathJax.Hub.Queue(function() {
+       var all = MathJax.Hub.getAllJax(), i;
+       for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+        });
+</script>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>

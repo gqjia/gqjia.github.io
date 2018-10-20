@@ -1,13 +1,20 @@
-<header class="g-header">
-    <div class="g-logo">
-      <a href="{{ "/" | relative_url }}"></a>
-    </div>
-    <i id="menu-toggle" class="iconfont icon-menu"></i>
-    <nav class="g-nav">
-        <ul>
-            {% for i in site.nav %}
-            <li><a href="{{ i[1] }}">{{ i[0] }}</a></li>
-            {% endfor %}
-        </ul>
-    </nav>
+<header class="main-header content-wrapper">
+
+  <input type="checkbox" id="menu-checkbox" />
+
+  <nav class="center-wrapper nav-main">
+
+    <a class="blog-logo" href="{{ site.baseurl }}/">{{ site.title }}</a>
+
+    {% for my_page in site.pages %}
+      {% if my_page.active %}
+        <a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+      {% endif %}
+    {% endfor %}
+
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
+
+    <label for="menu-checkbox" class="toggle-button" data-open="☰" data-close="☰" onclick></label>
+  </nav>
+
 </header>
