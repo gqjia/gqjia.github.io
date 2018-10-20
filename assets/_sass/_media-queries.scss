@@ -142,7 +142,7 @@
   .content-wrapper {
     width: $content-wrapper-width;
     max-width: $article-max-width;
-    margin-left: $post-margin-left;
+    margin: $post-margin;
   }
 
   main {
@@ -158,6 +158,6 @@
   .blog-footer {
     width: $content-wrapper-width;
     max-width: $article-max-width;
-    margin-left: $post-margin-left;
+    margin: $post-margin;
   }
 }

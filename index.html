@@ -1,102 +1,22 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Liu-Cheng Xu</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700' rel='stylesheet' type='text/css'>
-        <style>
-            html, body {
-                overflow: hidden;
-                margin: 0;
-            }
-            body {
-                font-family: 'Open Sans', 'Helvetica Neue', 'Hiragino Sans GB', 'LiHei Pro', Arial, sans-serif;
-                color: #333;
-            }
-            #wrapper {
-                position: absolute;
-                left: 0;
-                width: 320px;
-                text-align: center;
-                top: 50%;
-                left: 50%;
-                margin-left: -160px;
-                margin-top: -160px;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                user-select: none;
-            }
-            h1 {
-                font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-                font-weight: 700;
-                font-size: 25px;
-                letter-spacing: 6px;
-                text-transform: uppercase;
-                margin: 12px 0;
-                left: 4px;
-            }
-            h2 {
-                color: #999;
-                font-weight: normal;
-                font-size: 15px;
-                letter-spacing: .12em;
-                margin-bottom: 30px;
-                left: 3px;
-            }
-            h1, h2 {
-                position: relative;
-            }
-            p {
-                font-size: 14px;
-                line-height: 2em;
-                margin: 0;
-                letter-spacing: 2px;
-            }
-            canvas {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-            }
-            a {
-                color: #999;
-                text-decoration: none;
-                transition: color .2s ease;
-            }
-            a:hover {
-                color: #f33;
-            }
-        </style>
-        <script type="text/javascript">
+---
+bg: "rails.jpg"
+layout: default
+crawlertitle: "Liu-Cheng Xu"
+title: "Voyager"
+summary: "Life is a long road"
+---
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-73260325-1']);
-          _gaq.push(['_setDomainName', 'liuchengxu.org']);
-          _gaq.push(['_trackPageview']);
-
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-
-        </script>
-    </head>
-    <body>
-        <div id="wrapper">
-            <h1>Liu-Cheng Xu</h1>
-            <h2>Focusing on Blockchain currently</h2>
-            <p><a href="https://liuchengxu.github.io/home" target="_blank">Blog</a></p>
-            <p><a href="https://twitter.com/_liuchengxu" target="_blank">Twitter</a></p>
-            <p><a href="https://github.com/liuchengxu" target="_blank">Github</a></p>
-            <p><a href="https://liuchengxu.github.io/blog-cn" target="_blank">博客</a></p>
-            <p><a href="https://www.jianshu.com/u/daf68451f175" target="_blank">简书</a></p>
-            <p><a href="https://www.zhihu.com/people/simple_the_best/" target="_blank">知乎</a></p>
-        </div>
-        <canvas></canvas>
-    </body>
-</html>
+<article class="index-page">
+  {% for post in site.posts %}
+    <div class="list-item">
+      <div class='list-date'>
+        <small>{{ post.date | date_to_string }}</small>
+      </div>
+      <div class="list-left">
+        <a href="{{ post.url | prepend: site.baseurl }}"><i style="padding-right:4px;"> » </i>{{ post.title }}
+        <small class="category">{{ post.tag }}</small>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</article>

@@ -90,9 +90,9 @@
 (function() {
   var aside = document.querySelector('.sidebar');
   var mainContainer = document.querySelectorAll('.content-wrapper');
-  var switcher = document.getElementById('switcher');
+  // var switcher = document.getElementById('switcher');
 
-  switcher.addEventListener('click', slide, false);
+  // switcher.addEventListener('click', slide, false);
 
 
   function slide() {

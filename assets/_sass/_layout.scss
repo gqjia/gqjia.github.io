@@ -2,8 +2,9 @@
 * Links
 * ========================================================================== */
 a {
-  color: #333;
-  &:hover,
+  color: #5C98A5;
+  text-decoration: none;
+  j:hover,
   &:focus,
   &:active { text-decoration: none; }
 }
@@ -198,7 +199,6 @@ main {
 .index-page {
   position: relative;
   &:after {
-    content: "***";
     position: absolute;
     margin-top: 1em;
     width: 100px;
@@ -206,8 +206,70 @@ main {
   }
 }
 
+.list-item {
+  height: auto;
+  overflow: hidden;
+  margin: 10px;
+}
+
+@media screen and (max-width: 500px) {
+    .category {display: none}
+  }
+
+.list-item a{
+    float: none;
+    color: #7788aa;
+    width: auto;
+    padding-left: 1.6em;
+    overflow: hidden;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.list-item a:link {
+    text-decoration: none;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.list-item a:hover{
+    color: #10ae58;
+}
+
+.list-left {
+    float: none;
+    width: auto;
+    padding-left: 1.6em;
+    overflow: hidden;
+    text-align: left;
+}
+
+.list-date {
+    text-align: right;
+    float: right;
+    width: 25%;
+    font-size: 14px;
+    margin-left: 0.5em;
+    color: #999999;
+    text-transform: lowercase;
+}
+
+.category {
+    color: #aaaaaa;
+    font-style: italic;
+    font-size: 14px;
+    margin-left: 8px;
+}
 article {
   padding: 2em 1em;
+  font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"\5b8b\4f53";
   img,
   embed,
   object,
@@ -232,9 +294,17 @@ article {
     height: auto;
     display: block;
     margin: 1em auto;
-    padding: .2em;
+    border: 0.3em solid #a1a3a6;
     background-color: #fff;
+    border-radius: 8px;
   }
+}
+
+article.index-page {
+    margin-left: -20px;
+    padding: 0 10px 20px 0;
+    font-size: 16px;
+    font-family: "ComputerModern", Georgia, Palatino, "Century Schoolbook L", "Times New Roman", Times, serif;
 }
 
 .post-meta {
@@ -301,6 +371,12 @@ article {
   line-height: 1.5em;
 }
 
+.footnotes {
+  font-size: 14px;
+  font-family: "ComputerModern", Georgia, Palatino, "Century Schoolbook L", "Times New Roman", Times, serif;
+  margin-left: -20px;
+}
+
 
 
 /*
@@ -323,7 +399,7 @@ article {
     color: #333;
     margin: 10px 0;
   }
-  
+
   &__title {
     font-size: 1em;
     font-weight: bold;

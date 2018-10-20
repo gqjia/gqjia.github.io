@@ -10,13 +10,13 @@ title: Liu-Cheng Xu
 email: xuliuchengxlc@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
     The world is indeed a stage and we are merely players.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: /blog-cn  # the subpath of your site, e.g. /blog
 lang: "en"
-url: "http://www.liuchengxu.org" # the base hostname & protocol for your site
+url:  # the base hostname & protocol for your site
 twitter_username:
 github_username:  liuchengxu
 disqus_username:
-google_analytics: UA-73260325-1
+google_analytics: UA-73260325-3
 
 # Build settings
 markdown: kramdown
