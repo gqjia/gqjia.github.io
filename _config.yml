@@ -1,9 +1,9 @@
 # Mandatory settings
 
 blog_theme: light # Or use dark
-name: Moriarty12138
+name: Chalk
 paginate: 25
-url: https://Moriarty12138.github.io # add your site url (format: https://example.com)
+url: # add your site url (format: https://example.com)
 
 
 # Optional settings
