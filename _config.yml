@@ -1,6 +1,6 @@
 # ----------- CONFIGURABLE START -----------
-title:            "BLOG"
-description:      "A walker."
+title:            "A walker"
+description:      "I walk in the rain."
 url:              https://Moriarty12138.github.io # Site url, without a slash at the end.
 signoff:          "Moriarty12138" # Your name
 facebook_appid:   # APP ID for like button, remove from /_includes/share.html if unwanted.
