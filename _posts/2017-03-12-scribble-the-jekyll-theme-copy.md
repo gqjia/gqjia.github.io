@@ -1,5 +1,5 @@
 ---
-title: [NLPOX]1dd
+title: Scribble, a Jekyll theme11
 date: 2017-03-12 00:06:00
 ---
 
