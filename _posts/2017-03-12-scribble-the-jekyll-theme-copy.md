@@ -1,5 +1,5 @@
 ---
-title: Scribble, a Jekyll t
+title: [NLP]
 date: 2017-03-12 00:06:00
 ---
 
