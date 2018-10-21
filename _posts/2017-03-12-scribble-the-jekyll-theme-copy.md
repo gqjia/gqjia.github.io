@@ -1,5 +1,5 @@
 ---
-title: Scribble, a Jekyll theme11
+title: Scribble, a Jekyll t
 date: 2017-03-12 00:06:00
 ---
 
