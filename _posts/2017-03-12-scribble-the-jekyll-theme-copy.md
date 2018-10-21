@@ -1,5 +1,5 @@
 ---
-title: [NLP][OX]1 ssdd
+title: [NLP][OX]1ssdd
 date: 2017-03-12 00:06:00
 ---
 
