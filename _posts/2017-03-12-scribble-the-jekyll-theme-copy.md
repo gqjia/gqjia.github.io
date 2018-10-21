@@ -1,5 +1,5 @@
 ---
-title: [NLP/OX]1dd
+title: [NLPOX]1dd
 date: 2017-03-12 00:06:00
 ---
 
