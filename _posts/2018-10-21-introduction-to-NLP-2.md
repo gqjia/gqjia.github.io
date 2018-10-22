@@ -27,7 +27,7 @@ date: 2018-10-21 20:10:31
 10. 《自然语言处理的形式模型》 -冯志伟
 
 ## 视频资料
-1.[牛津大学xDeepMind 自然语言处理](https://study.163.com/course/courseMain.htm?courseId=1004336028)
+1. [牛津大学xDeepMind 自然语言处理](https://study.163.com/course/courseMain.htm?courseId=1004336028)
 
 ## Github
 
