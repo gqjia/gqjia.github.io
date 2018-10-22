@@ -34,4 +34,5 @@ date: 2018-10-21 20:10:31
 
 ## Blog
 1. [我爱自然语言处理](http://www.52nlp.cn/)
-2. [北京大学中文系 应用语言学]()
+2. [A7论坛](http://www.aqinet.cn/)
+3. [zouxy09的专栏](https://blog.csdn.net/zouxy09)
