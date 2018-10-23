@@ -36,3 +36,4 @@ date: 2018-10-21 20:10:31
 1. [我爱自然语言处理](http://www.52nlp.cn/)
 2. [A7论坛](http://www.aqinet.cn/)
 3. [zouxy09的专栏](https://blog.csdn.net/zouxy09)
+4. [《算法工程师手册(数学基础/统计学习/深度学习/自然语言处理/计算机视觉/工具)》by 华校专](http://www.huaxiaozhuan.com/)
