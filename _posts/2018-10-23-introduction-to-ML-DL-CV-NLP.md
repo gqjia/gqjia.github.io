@@ -1,11 +1,11 @@
 ---
-title: 【转】《算法工程师手册(数学基础/统计学习/深度学习/自然语言处理/计算机视觉/工具)》
+title: 算法工程师手册
 date: 2018-10-23 19:11:31
 ---
 
 
 ## 数学基础
-1. 线性代数基础
+1. [线性代数基础](http://www.huaxiaozhuan.com/数学基础/chapters/1_algebra.html)
 *  基本知识
 *  向量操作
 *  矩阵运算
@@ -256,8 +256,8 @@ date: 2018-10-23 19:11:31
 *    DART booster
 *    Python API
 
-###scikit-learn
-1. 预处理
+### [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/index.html)
+1. [预处理](http://www.huaxiaozhuan.com/工具/scikit-learn/chapters/1.preprocess.html)
 *  特征处理
 *  特征选择
 *  字典学习
@@ -325,7 +325,7 @@ date: 2018-10-23 19:11:31
 *  广播变量
 
 ## numpy
-*  numpy 使用指南
+*  [numpy 使用指南](http://www.huaxiaozhuan.com/工具/numpy/chapters/numpy.html)
 *    ndarray
 *    ufunc 函数
 *    函数库
@@ -367,6 +367,9 @@ date: 2018-10-23 19:11:31
 *    移动窗口函数
 *    数据加载和保存
 
+## [keras](https://keras.io/zh/)
+
+参考文章：《算法工程师手册(数学基础/统计学习/深度学习/自然语言处理/计算机视觉/工具)》by 华校专 <br/>
 作者：[华校专]<br/>
 链接：http://www.huaxiaozhuan.com/<br/>
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br/>
