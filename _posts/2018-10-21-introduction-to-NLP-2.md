@@ -31,6 +31,7 @@ date: 2018-10-21 20:10:31
 1. [牛津大学xDeepMind 自然语言处理](https://study.163.com/course/courseMain.htm?courseId=1004336028)
 
 ## Github
+1. [THUNLP](https://github.com/thunlp)
 
 ## Blog
 1. [我爱自然语言处理](http://www.52nlp.cn/)
