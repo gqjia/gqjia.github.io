@@ -128,10 +128,10 @@ date: 2018-10-23 19:11:31
 *  最大熵的学习
 
 ## 深度学习
-1. 深度学习简介
+1. [深度学习简介](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/0_dl_introduction.html)
 *  介绍
 *  历史
-2. 机器学习基础
+2. [机器学习基础](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/1_basic_ml.html)
 *  基本概念
 *  点估计、偏差方差
 *  最大似然估计
@@ -139,20 +139,20 @@ date: 2018-10-23 19:11:31
 *  随机梯度下降
 *  传统机器学习的挑战
 *  低维流形
-3. 深度前馈神经网络
+3. [深度前馈神经网络](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/2_deep_forward.html)
 *  基础
 *  损失函数
 *  输出单元
 *  隐单元
 *  结构设计
 *  历史小记
-4. 反向传播算法
+4. [反向传播算法](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/3_bp.html)
 *  反向传播
 *  深度前馈神经网络  
 *  实现
 *  应用
 *  自动微分
-5. 正则化
+5. [正则化](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/4_regularization.html)
 *  基本概念
 *  参数范数正则化
 *  约束正则化
@@ -166,7 +166,7 @@ date: 2018-10-23 19:11:31
 *  对抗训练
 *  正切传播算法
 *  正则化和欠定问题
-6. 最优化础
+6. [最优化础](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/5_optimization.html)
 *  代价函数
 *  神经网络最优化挑战
 *  mini-batch
@@ -176,13 +176,13 @@ date: 2018-10-23 19:11:31
 *  共轭梯度
 *  优化策略和元算法
 *  参数初始化策略
-7. 卷积神经网络
+7. [卷积神经网络](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/6_CNN.html)
 *  卷积运算
 *  卷积层、池化层
 *  基本卷积的变体
 *  算法细节
 *  历史和现状
-8. 循环神经网络
+8. [循环神经网络](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/7_RNN.html)
 *  RNN计算图
 *  循环神经网络
 *  长期依赖
@@ -191,7 +191,7 @@ date: 2018-10-23 19:11:31
 *  回声状态网络
 *  LSTM 和其他门控RNN
 *  外显记忆
-9. 工程实践指导原则
+9. [工程实践指导原则](http://www.huaxiaozhuan.com/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/chapters/8_practical.html)
 *  性能度量
 *  默认的基准模型
 *  决定是否收集更多数据
