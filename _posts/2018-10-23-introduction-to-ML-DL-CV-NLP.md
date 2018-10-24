@@ -210,15 +210,15 @@ date: 2018-10-23 19:11:31
 *  LDA Model
 *  模型讨论
 
-###词向量
+### 词向量
 *  向量空间模型 VSM
 *  LSA
 *  Word2Vec
 *  GloVe
 
-##计算机视觉
+## 计算机视觉
 
-###图片分类网络
+### 图片分类网络
 *  LeNet
 *  AlexNet
 *  VGG-Net
@@ -229,16 +229,16 @@ date: 2018-10-23 19:11:31
 *  小型网络
 *  趋势
 
-##工具
+## 工具
 
-###CRF
+### CRF
 *  CRF++
 *    安装
 *    使用
 *    Python接口
 *    常见错误
 
-###lightgbm
+### lightgbm
 *  lightgbm使用指南
 *    安装
 *    调参
@@ -246,7 +246,7 @@ date: 2018-10-23 19:11:31
 *    API
 *    Docker
 
-###xgboost
+### xgboost
 *  xgboost使用指南
 *    安装
 *    调参
