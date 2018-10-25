@@ -3,7 +3,7 @@ title: 【NLP】02 Basic Text Processing
 date: 2018-10-25 12:01:31
 ---
 
-### Regular expressions
+## Regular expressions
 
 a formal language for specifying text strings
 1. [A-Z] [a-z] [0-9]
@@ -28,4 +28,4 @@ For many hard tasks, we using machine learning classifiers.<br/>
 But regular expressions are used as features in the classifiers.<br/>
 Can be very useful  in capturing generalizations.<br/>
 
-### Regular expressions in practical NLP
+## Regular expressions in practical NLP
