@@ -19,19 +19,19 @@ Ambiguity makes NLP hard:<br/>
 6. tricky entity names
 
 #### Teaches key theory and methods for statistical NLP:
-*  Viterbi
-*  Naïve Bayes, Maxent classifiers
-*  N-gram language modeling
-*  Statistical Parsing
-*  Inverted index, tf-idf, vector models of meaning
+1. Viterbi
+2. Naïve Bayes, Maxent classifiers
+3. N-gram language modeling
+4. Statistical Parsing
+5. Inverted index, tf-idf, vector models of meaning
 
 #### For pracIcal, robust real-world applications
-*  Information extracIon
-*  Spelling correction
-*  Information retrieval
-*  Sentiment analysis
+1. Information extracIon
+2. Spelling correction
+3. Information retrieval
+4. Sentiment analysis
 
 #### Skills you’ll need:
-*  Simple linear algebra(vectors,matrices)
-*  Basic probability theory
-*  Java or Python programming
+1. Simple linear algebra(vectors,matrices)
+2. Basic probability theory
+3. Java or Python programming
