@@ -29,3 +29,11 @@ But regular expressions are used as features in the classifiers.<br/>
 Can be very useful  in capturing generalizations.<br/>
 
 ## Regular expressions in practical NLP
+
+
+## Word tokenization
+
+#### text normalization（正常化，标准化）
+1. Segmenting/tokenizing words in running text
+2. Normlizing word formats
+3. Segmenting sentences in running text
