@@ -15,6 +15,7 @@ Idea: produce dense vector representations based on the context/use of words.<br
 Three main approaches:
   1. count-based(基于计数的)
   2. predictive(预测性的)
+  3. task-based(任务型的)
 
 
 #### count-based methods
