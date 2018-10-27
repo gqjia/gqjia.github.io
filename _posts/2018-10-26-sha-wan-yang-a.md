@@ -1,6 +1,6 @@
-﻿---
-title: 【奇奇怪怪】高性能作业
-date: 2018-10-25 20:18:31
+---
+title: 【奇奇怪怪】高性能的神奇作业
+date: 2018-10-26 21:20:31
 ---
 
 
@@ -24,3 +24,6 @@ for i in strtxt:
         elif j != '{' and j != '(' and j != '>':
             print(j)
 ```
+---
+代码结果：<br/>
+![jupter notbook](/image/DL-image/qiqiguaiguai-result.png)
