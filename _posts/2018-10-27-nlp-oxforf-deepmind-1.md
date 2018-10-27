@@ -42,3 +42,29 @@ representation = embedding symbols with E<br/>
 <br/>
 one generic idea behind embedding learning:<br/>
 ![generic](/images/DL-images/nlp-deepmind-ox-1.png)
+1. collect insatnces
+2. for each instance, collect it's context words
+3. define some score function score with upper bound on output
+4. define a loss<br/>
+easy to design a useless scorer(e.g. ignore input, output upper bound).<br/>
+
+ideally, score:
+* embeds t with E(obviously).评分函数要明显的用到优化后的词向量矩阵t,并得到一个表征。
+* produces a score which is a function of how well t is accounted for by c.得出的分数要有说明性。
+* requires the word to account for the context (or the reverse) more than another word in the same place.评价上下文可以将单词解释的怎么样，反映在自然语言中的使用情况怎么样。
+* produces a loss which is differentiable w.r.t. theta and E.
+
+5. estimate E
+6. use the estimate E as your embedding matrix
+
+---
+paper: Natural Language Processing (Almost) from Scratch<br/>
+C&W model<br/>
+![c&w](/images/DL-images/nlp-deepmind-ox-1-2.png)
+?
+---
+paper: Mikolov et al. 2013<br/>
+CBoW model<br/>
+![CBoW](/images/DL-images/nlp-deepmind-ox-1-3.png)
+?
+---
