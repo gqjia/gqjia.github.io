@@ -62,9 +62,11 @@ paper: Natural Language Processing (Almost) from Scratch<br/>
 C&W model<br/>
 ![c&w](/images/DL-images/nlp-deepmind-ox-1-2.jpg)
 ?<br/>
+
 ---
 paper: Mikolov et al. 2013<br/>
 CBoW model<br/>
 ![CBoW](/images/DL-images/nlp-deepmind-ox-1-3.jpg)
 ?<br/>
+
 ---
