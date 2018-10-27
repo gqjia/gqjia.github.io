@@ -26,4 +26,4 @@ for i in strtxt:
 ```
 ---
 代码结果：<br/>
-![jupter notbook](/image/DL-image/qiqiguaiguai-result.png)
+![jupter notbook](/images/DL-images/qiqiguaiguai-result.png)
