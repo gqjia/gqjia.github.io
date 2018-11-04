@@ -21,12 +21,13 @@ date: 2018-10-21 20:10:31
 2. 《统计自然语言处理基础》
 3. 《统计自然语言处理》
 4. 《计算机自然语言处理》
-5. 《Speech and Language Processing》
+5. 《Speech and Language Processing》--Daniel Jurafsky & James H. Martin
 6. 《数学之美》 -吴军
 7. 《自然语言处理简明教程》 -冯志伟
 8. 《Python自然语言处理》
 9. 《集体智慧编程》
 10. 《自然语言处理的形式模型》 -冯志伟
+11. 《Statistical Natural Language Processing》 --Christopher D. Manning & Hinrich Schu tze
 
 ## 视频资料
 1. [牛津大学xDeepMind 自然语言处理](https://study.163.com/course/courseMain.htm?courseId=1004336028)
