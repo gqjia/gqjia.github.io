@@ -1,5 +1,5 @@
 ---
-title: 【code】【牛客OJ】003 二维数组的查找
+title: 【剑指Offer】003 二维数组的查找
 date: 2018-11-06 10:27:31
 ---
 ![003](/images/alg-images/find.jpg)  
