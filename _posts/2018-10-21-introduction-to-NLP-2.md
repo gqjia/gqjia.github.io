@@ -8,6 +8,10 @@ date: 2018-10-21 20:10:31
 1. 《统计学完全教程》
 2. 《数学之美》
 3. [Numpy中文文档](https://www.numpy.org.cn/index.html)
+4. [OpenCV-Python中文教程](https://www.kancloud.cn/aollo/aolloopencv/269602)
+5. [Pytorch中文文档](https://ptorch.com/docs/8/)
+6. [Torch中文文档](https://ptorch.com/docs/2/)
+7. [pytorch](https://ptorch.com/)
 
 ### 机器学习
 1. 《机器学习》 -周志华
