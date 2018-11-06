@@ -9,7 +9,14 @@ date: 2018-11-06 10:27:31
 两层循环来进行查找。  
 
 ```python
+#!/user/bin/env python
 # -*- coding:utf-8 -*-
+'''
+Created on 2018-11-06
+Upgrate on 2018-11-06
+Anthor: Moriarty12138
+Github: https://github.com/Moriarty12138/leetcode-pratice
+'''
 class Solution:
     # array 二维列表
     def Find(self, target, array):
@@ -30,7 +37,14 @@ class Solution:
 如果这个数等于要查找的数，输出结果。  
 
 ```python
+#!/user/bin/env python
 # -*- coding:utf-8 -*-
+'''
+Created on 2018-11-06
+Upgrate on 2018-11-06
+Anthor: Moriarty12138
+Github: https://github.com/Moriarty12138/leetcode-pratice
+'''
 class Solution:
     # array 二维列表
     def Find(self, target, array):
@@ -45,4 +59,31 @@ class Solution:
                     if j == target:
                         return True
         return False
+```
+
+### 时间最快的算法
+```python
+#!/user/bin/env python
+# -*- coding:utf-8 -*-
+class Solution:
+    # array 二维列表
+    def Find(self, target, array):
+        # write code here
+        n=len(array)
+        flag='false'
+        for i in range(n):
+            if target in array[i]:
+                flag='true';
+                break
+        return flag
+while True:
+    try:
+        S=Solution()
+        # 字符串转为list
+        L=list(eval(raw_input()))
+        array=L[1]
+        target=L[0]
+        print(S.Find(target, array))
+    except:
+        break
 ```
