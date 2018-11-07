@@ -2,7 +2,7 @@
 title: 【剑指Offer】003 二维数组的查找
 date: 2018-11-06 10:27:31
 ---
-![003](/images/alg-images/find.jpg)  
+![003](/images/alg-images/003.jpg)  
 
 ### 暴力解法
 
@@ -29,7 +29,7 @@ class Solution:
 ```
 
 ### 分治解法  
-![003](/images/alg-images/find7.jpg)  
+![003](/images/alg-images/003-1.jpg)  
 
 从右上角侧开始查找  
 如果这个数大于要查找的数，则开始查找这个数左侧的数，进入下一个循环。  
@@ -62,6 +62,7 @@ class Solution:
 ```
 
 ### 时间最快的算法
+
 ```python
 #!/user/bin/env python
 # -*- coding:utf-8 -*-

@@ -23,8 +23,14 @@ class Solution:
 ```  
 
 ### 最快的算法
+将s转换成列表。  
+遍历s，将空格替换成%20。  
+利用join函数输出。  
+
 ```python
+#!/user/bin/env python
 # -*- coding:utf-8 -*-
+
 class Solution:
     # s 源字符串
     def replaceSpace(self, s):
