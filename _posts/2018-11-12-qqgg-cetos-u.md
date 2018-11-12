@@ -8,7 +8,7 @@ date: 2018-11-12 18:53:31
 
 ---
 1. fdisk -l
->  设备 Boot      Start         End      Blocks   Id  System
+>  设备 Boot      Start         End      Blocks   Id  System  
 /dev/sdd1            2048    3907026943    1953512448    7  HPFS/NTFS/exFAT
 
 2. mkdir -p /mnt/udisk
