@@ -1,5 +1,5 @@
 ---
-title: 【kaggle】【quora insincere questions classification】1 quora insincere questions classification
+title: 【kaggle】【quora insincere questions classification】1 赛题
 date: 2018-11-16 17:08:31
 ---
 
