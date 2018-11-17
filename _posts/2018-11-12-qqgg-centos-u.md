@@ -1,0 +1,21 @@
+---
+title: 【奇奇怪怪】centOS挂载移动硬盘
+date: 2018-11-12 18:53:31
+---
+
+真是让人头大。  
+
+
+---
+1. fdisk -l
+>  设备 Boot      Start         End      Blocks   Id  System  
+/dev/sdd1            2048    3907026943    1953512448    7  HPFS/NTFS/exFAT
+
+2. mkdir -p /mnt/udisk
+3. ls /mnt
+>  udisk
+
+4. mount -t ntfs-3g /dev/sdb4 /mnt/udisk/
+> Document
+
+5. umount /mnt/udisk/
