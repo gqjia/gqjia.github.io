@@ -28,6 +28,23 @@ class Solution:
         return False
 ```
 
+```java
+public class S003 {
+    public boolean Find(int target, int [][] array) {
+        int row = 0, col = 0, t = 0;
+        boolean isFind = false;
+        for(int i = 0; i < array.length; i++)
+            for(int j = 0; j < array[0].length; j++ )
+                if(false == isFind && target == array[i][j])
+                    isFind = true;
+        return isFind;
+    }
+}
+```
+
+
+---
+
 ### 分治解法  
 ![003](/images/alg-images/003-1.jpg)  
 
