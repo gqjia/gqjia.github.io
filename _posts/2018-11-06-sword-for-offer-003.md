@@ -78,6 +78,27 @@ class Solution:
         return False
 ```
 
+```java
+public class S003_1 {
+    public boolean Find(int target, int [][] array) {
+        boolean isFind = false;
+        int row = array.length;
+        int col = array[0].length;
+
+        for (int i = 0, j = col - 1; i >= 0 && i < row && j >= 0 && j < col; ) {
+            if (target == array[i][j]) {
+                isFind = true;
+                break;
+            } else if (target < array[i][j])
+                j--;
+            else
+                i++;
+        }
+        return isFind;
+    }
+}
+```
+
 ### 时间最快的算法
 
 ```python
