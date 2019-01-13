@@ -425,3 +425,4 @@ stacking方法基本适用于目前90%的问题,包括分类,回归,推荐等等
 8. [林老师的课件](http://www.csie.ntu.edu.tw/~htlin/mooc/)
 9. [ndemir关于Stacking的Github](https://github.com/ndemir/stacking)
 10. [Introduction-to-ensembling-stacking-in-python ](https://www.kaggle.com/arthurtok/introduction-to-ensembling-stacking-in-python)
+11. [How to Develop a Stacking Ensemble for Deep Learning Neural Networks in Python With Keras](https://machinelearningmastery.com/stacking-ensemble-for-deep-learning-neural-networks/)
