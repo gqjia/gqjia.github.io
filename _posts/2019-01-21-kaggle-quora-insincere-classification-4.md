@@ -25,6 +25,8 @@ date: 2019-01-21 14:13:00
 
 
 
+---
+
 基本上，当我们应用K-fold CV并对每个折叠进行平均时，我们给出的预测是每个折叠的K模型的集合。如果是一个集合模型，即你的LB得分，至少有两个因素影响表现。
 
 1. 每个折叠的CV得分（每个基础分类器的性能）越高越好。
@@ -32,7 +34,21 @@ date: 2019-01-21 14:13:00
 
 因此，您还应该检查验证框架中的第二个因素（折叠预测之间的相关性）。如果需要，可以在K-fold CV之前分离一些数据作为最终预测的验证数据（LB评分的估计）。
 
+
+
+----
+
+#### 本地CV与LB不匹配的问题：
+
+There have been some issues regarding the correlation between CV and leaderboard scores in this competition.
+
+Every top-scoring public kernel has a much lower CV score than leaderboard score. It has also been very frustrating to tune a model to optimal CV score only to discover that the score on the Leaderboard is abysmal.
+
+ 
+
 [A validation framework & impact of the random seed](https://www.kaggle.com/bminixhofer/a-validation-framework-impact-of-the-random-seed)
+
+There have been some issues regarding the correlation between CV and leaderboard scores in this competition.
 
 Takeaway
 
