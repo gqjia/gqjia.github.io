@@ -18,6 +18,8 @@ date: 2019-01-21 14:13:00
 ---
 目前看来第一种方法效果不佳。
 
+增加反例和正例均未取得提高。
+
 平衡这个数据集的一个大问题是你最终丢弃了大量数据
 
 除非能找到一种方法来继续使用希望得到的数据
@@ -44,7 +46,7 @@ There have been some issues regarding the correlation between CV and leaderboard
 
 Every top-scoring public kernel has a much lower CV score than leaderboard score. It has also been very frustrating to tune a model to optimal CV score only to discover that the score on the Leaderboard is abysmal.
 
- 
+
 
 [A validation framework & impact of the random seed](https://www.kaggle.com/bminixhofer/a-validation-framework-impact-of-the-random-seed)
 
