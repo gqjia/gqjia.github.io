@@ -13,7 +13,7 @@ public class S009 {
             return 1;
         else
             for (int i=3; i <= n; i++){
-                c = a + b;
+                c = a + b;  //F(n - 1)
                 b = a;
                 a = c;
             }

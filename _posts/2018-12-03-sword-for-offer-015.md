@@ -16,3 +16,27 @@ public class S015 {
     }
 }
 ```
+
+
+```Java
+public class Solution {
+    public void reOrderArray(int [] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 1) {
+                int j = i;
+                while(j > 0) {
+                    if (array[j - 1] % 2 == 0) {
+                        int temp = array[j];
+                        array[j] = array[j - 1];
+                        array[j - 1] = temp;
+                        j--;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+```

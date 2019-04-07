@@ -13,7 +13,7 @@ public class S008 {
             if (array[i] > array[i+1])
                 return array[i+1];
             else
-                if (i == array.length-2)
+                if (i == array.length-2) //查找至最后一个元素
                     return array[0];
         return 0;
     }
