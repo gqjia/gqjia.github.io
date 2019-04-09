@@ -8,7 +8,10 @@ I walk in the rain.
 ![女流](/images/nvliu.jpg)  
 
 
+
 Find me on
+
+[resume](/resume/resume.pdf)
 
 [GitHub](https://github.com/Moriarty12138)
 
