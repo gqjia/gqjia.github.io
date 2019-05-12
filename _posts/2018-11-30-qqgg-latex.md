@@ -22,3 +22,5 @@ date: 2018-11-30 14:58:31
 ![](/images/DL-images/latex4.png)
 
 ![](/images/DL-images/latex5.png)
+
+![](/images/DL-images/latex5.gif)
