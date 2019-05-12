@@ -24,12 +24,32 @@ $$f(x) = W^T x + b$$
 
 $f(x_i) = w x_i + b$,使得$f(x_i) \backsimeq y_i$
 
+考虑单个属性的情况:
+
 ![3.7](/images/machine-learning/ml3.7.jpg)
 
+向量形式:
 
+![3.8](/images/machine-learning/ml3.8.jpg)
+
+多个属性的情况:
+
+![3.10](/images/machine-learning/ml3.10.jpg)
+
+现实任务中$X^T X$往往不是满秩矩阵,许多任务中属性数目会超越样例数目,此时会有多个解均能使均方误差最小化.选择哪个解将由学习算法的偏好决定,常见的做法是引入正则化项.
+
+对数线性回归:
+$$\ln y = w^T x + b$$
+
+$g(.)$联系函数,单调可微.广义线性模型:
+$$y = g^{-1}(w^T x + b)$$
+
+对数线性回归是广义线性模型的特例.
 
 
 #### 逻辑回归(Logistic Regression)
+
+
 
 #### 线性判别(LDA)
 
