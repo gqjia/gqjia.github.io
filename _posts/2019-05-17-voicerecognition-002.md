@@ -1,0 +1,37 @@
+---
+title: 【Voice Recognition】wav文件位数转换
+date: 2019-05-17 13:13:17
+---
+
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Can only read 16-bit WAV files, but received 24
+
+
+I would suggest using SoX for this task. Changing the bit depth is very simple:
+
+```txt
+sox old.wav -b 16 new.wav
+```
+
+If you must use Python, then you could use PySoundFile as you found. Here's a little code snippet:
+
+```python
+import soundfile
+
+data, samplerate = soundfile.read('old.wav')
+soundfile.write('new.wav', data, samplerate, subtype='PCM_16')
+```
+
+You should also use soundfile.available_subtypes to see which subtypes you can convert a file to. Here's its sample usage, taken from their documentation:
+
+```python
+>>> import soundfile as sf
+>>> sf.available_subtypes('FLAC')
+{'PCM_24': 'Signed 24 bit PCM',
+ 'PCM_16': 'Signed 16 bit PCM',
+ 'PCM_S8': 'Signed 8 bit PCM'}
+```
+
+
+
+---
+[How to convert a 24-bit wav file to 16 or 32 bit files in python3](https://stackoverflow.com/questions/44812553/how-to-convert-a-24-bit-wav-file-to-16-or-32-bit-files-in-python3)
