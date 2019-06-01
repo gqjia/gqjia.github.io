@@ -23,8 +23,7 @@ $$r = \frac{|w^T x + b|}{\|w\|}$$
 1. $w^T x + b >= +1 , y_i = +1$
 2. $w^T x + b <= -1 , y_i = -1$
 
-
-
+![SVM 6.3](/images/machine-learning/ml6.3.jpg)
 
 两个异类支持向量(support vector)到超平面的距离之和为间隔(margin)
 
@@ -34,4 +33,12 @@ $$\gamma = \frac{2}{\|w\|}$$
 
 $$\max{w, b} \frac{1}{2} \|w\|^2    s.t. y_i (w^T x_i + b) >= 1, i = 1, 2, ..., m$$
 
-![SVM 6.6]()
+![SVM 6.8](/images/machine-learning/ml6.8.jpg)
+
+解出$\alpha$后求出$w$和$b$即可得到模型
+
+$$f(x) = w^T x + b = \sum_{i = 1}^{m}{w_i^T x + b}$$
+
+从对偶问题解出的$\alpha_i$是公式6.8的拉格朗日乘子,他恰对应着训练样本$(x_i, y_i)$
+
+上述过程需满足KKT条件
