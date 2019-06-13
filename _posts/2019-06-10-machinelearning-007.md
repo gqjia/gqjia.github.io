@@ -28,8 +28,8 @@ $$h^{\ast(x)} = \arg\min_{c \in \mathcal{Y}}{R(c|x)}$$
 
 若目标最小化分类错误率，则错误率$\lambda_{ij}$可写为：
 
-$$ \lambda_{ij} = \left \{ \begin{array}{rcl} 0, & if i = j \\
-1, & otherwise,\end{array} \right $$
+<!-- $$ \lambda_{ij} = \left \{ \begin{array}{rcl} 0, & if i = j \\
+1, & otherwise,\end{array} \right $$ -->
 
 此时条件风险：
 
