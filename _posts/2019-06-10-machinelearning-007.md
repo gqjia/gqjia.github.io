@@ -99,8 +99,8 @@ $$P(c|x) = \frac{P(x, c)}{P(x)} = \frac{P(c)P(x|c)}{P(x)}$$
 
 为避免其他属性携带的信息被训练集中未出现的属性值“抹去”，在估计概率值通常要进行“平滑”（smoothing），常用“拉普拉斯修正”（Laplacian correction）。
 
-$$\hat{P}(c) = \frac{\|D_c\| + 1}{\|D\| + N}$$
-$$\hat{P}(x_i\|c) = \frac{\|D_{c,x_i}\| + 1}{\|D_c\| + N_i}$$
+$$\hat{P}(c) = \frac{|D_c| + 1}{|D| + N}$$
+$$\hat{P}(x_i|c) = \frac{|D_{c,x_i}| + 1}{|D_c| + N_i}$$
 
 拉普拉斯修正实质上假设了属性值与类别均匀分布，这是在朴素贝叶斯学习过程中额外引入的关于数据的先验。
 
@@ -123,7 +123,7 @@ $$\hat{P}(x_i\|c) = \frac{\|D_{c,x_i}\| + 1}{\|D_c\| + N_i}$$
 “独依赖估计”（One-Dependent Estimator ODE）是半朴素贝叶斯分类器最常用的一类策略。
 所谓“独依赖”就是假设每个属性在类别之外仅依赖于一个其他属性，即
 
-$$P(c|x) \propto P(c) \prod_{i=1}^{d}{P(x_i\|c,pa_i)}$$
+$$P(c|x) \propto P(c) \prod_{i=1}^{d}{P(x_i|c,pa_i)}$$
 
 问题的关键就转化为如何确定每个属性的父属性，不同的做法产生不同的独依赖分类器。
 1. SPODE(Super-Parent ODE)方法 假设所有的属性都依赖以同一个属性，称为“超父”（super-parent），然后通过交叉验证等模型选择方法来确定超父属性。
@@ -148,6 +148,14 @@ AODE尝试将每个属性作为超父来构建SPODE，然后将那些具有足�
 ### 贝叶斯网
 
 贝叶斯网（Bayesian network）亦称“信念网”（belief network），它借助有向无环图（Directed Acyclic Graph，DAG）来刻画属性之间的依赖关系，并使用条件概率表（Conditional Probability Table，简称CPT）来描述属性的概率分布。
+
+一个贝叶斯网$\mathcal{B}$由结构$\mathcal{G}$和参数$\Theta$两部分构成，即$\mathcal{B} = <\mathcal{G}, \Theta>$。
+* 网络结构$\mathcal{G}$是一个有向无环图，其每个节点对应一个属性，若两个属性又直接依赖关系，则它们由一条边连接起来
+* 参数$\Theta$定量描述这种依赖关系
+
+假设属性$x_i$在$\mathcal{G}$中的父结点集为$\pi_i$，则$\Theta$包含了每个属性的条件概率表$\theta_{x\|\pi_i} = P_B(x_i\|\pi_i)$
+
+
 
 
 
