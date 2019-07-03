@@ -21,6 +21,8 @@ date: 2019-06-21 16:26:00
 
 ### Boosting
 
+AdaBoost是这种方法的代表
+
 
 ### Bagging和随机森林
 
