@@ -1,5 +1,5 @@
 ---
-title: 【centos】centOS7 64位安装steam
+title: 【Linux】centOS7 64位安装steam
 date: 2018-11-17 08:02:31
 ---
 
