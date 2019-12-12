@@ -3,9 +3,6 @@ title: 【centos】centOS7 64位安装steam
 date: 2018-11-17 08:02:31
 ---
 
-百度很真实。
-
----
 > wget http://springdale.math.ias.edu/data/puias/unsupported/7/x86_64//dnf-0.6.4-2.sdl7.noarch.rpm
 
 > wget http://springdale.math.ias.edu/data/puias/unsupported/7/x86_64/dnf-conf-0.6.4-2.sdl7.noarch.rpm
