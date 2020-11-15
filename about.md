@@ -15,7 +15,6 @@ title: About me
 
 
 你也可以在以下平台找到我：  
-[resume](/resume/resume.pdf)
 [GitHub](https://github.com/Moriarty12138)
 [Weibo](https://weibo.com/u/2393595857)
 [Kaggle](https://www.kaggle.com/moriarty12138)
