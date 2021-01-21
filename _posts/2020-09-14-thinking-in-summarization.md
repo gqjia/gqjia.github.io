@@ -25,14 +25,6 @@ date: 2020-09-14 16:25:31
 中文文本摘要的数据集相对较少，我目前接触到的有哈工大的LCSTS。
 
 
-# 文本摘要的评价指标
-
-
-# 文本摘要的类别
-
-
-# 文本摘要的模型
-
 
 # 参考资料
 1. (GitHub:neulab/Text-Summarization-Papers)[https://github.com/neulab/Text-Summarization-Papers]
