@@ -64,3 +64,9 @@ source my_env/bin/activate
 ```shell
 conda create -n [new_envs_name] --clone[path to envs_names] --offline
 ```
+
+如果原先安装虚拟环境的时候，存在离线安装的包。这样的做法也会报错，提示找不到对应包的路径。
+简单粗暴的方法是把原先使用的的包迁移到对应位置的文件夹内，或者创建一个指定对应包所在文件夹的软链。
+```shell
+ln -s [pre/conda/pkg/path] [target/conda/pkg/path]
+```
