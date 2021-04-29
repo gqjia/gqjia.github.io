@@ -60,7 +60,7 @@ source my_env/bin/activate
 （前者其实也需要修改虚拟环境下的环境变量）
 
 
-最后介绍一下最终的方案，同时拷贝path/to/anaconda/env/下的环境和path/to/anaconda/pkgs/，把pkgs/文件放到对应位置，并且删除pkgs/内的urls和urls.txt。
+最后介绍一下最终的方案，同时拷贝path/to/anaconda/env/下的环境和path/to/anaconda/pkgs/，把pkgs/文件放到对应位置。
 ```shell
 conda create -n [new_envs_name] --clone[path to envs_names] --offline
 ```
