@@ -87,11 +87,11 @@ $$\mathrm{BP}=\left\{\begin{array}{ll}
 1 & \text { if } c>r \\
 e^{(1-r / c)} & \text { if } c \leq r
 \end{array}\right$$
-
+  
 $$\mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^{N} w_{n} \log p_{n}\right)$$
-
+  
 $$\log \mathrm{BLEU}=\min \left(1-\frac{r}{c}, 0\right)+\sum_{n=1}^{N} w_{n} \log p_{n}$$
-
+  
 通常情况下N取值为4，权重值设置为 $w_n = 1/N$
 
 
