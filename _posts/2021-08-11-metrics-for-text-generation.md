@@ -83,10 +83,7 @@ modified bigram precision 又远大于 modified trigram precision），
 当翻译的长度与任务参考翻译的长度相同的时候将简洁惩罚设置为1.0。
 具体计算如下：
   
-$$\mathrm{BP}=\left\{\begin{array}{ll}
-1 & \text { if } c>r \\
-e^{(1-r / c)} & \text { if } c \leq r
-\end{array}\right$$
+$$\mathrm{BP}=\left\{\begin{array}{ll} 1 & \text { if } c>r \\e^{(1-r / c)} & \text { if } c \leq r \end{array}\right$$
   
 $$\mathrm{BLEU}=\mathrm{BP} \cdot \exp \left(\sum_{n=1}^{N} w_{n} \log p_{n}\right)$$
   
