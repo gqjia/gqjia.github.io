@@ -95,6 +95,40 @@ $$\log \mathrm{BLEU}=\min \left(1-\frac{r}{c}, 0\right)+\sum_{n=1}^{N} w_{n} \lo
 通常情况下N取值为4，权重值设置为 $w_n = 1/N$ 。
 
 
+
 ## ROUGE
 
+[ROUGE](https://aclanthology.org/W04-1013/) 是针对摘要任务提出的一种评测方法，
+通过统计参考摘要和候选摘要在 n-gram 、序列（word sequences）、字对（word pair）的重叠（overlap）程度来评价候选摘要的质量。
+论文总共提出了四种 ROUGE 计算方案，分别是 ROUGE-N 、 ROUGE-L 、 ROUGE-W 、 ROUGE-S 。
+接下来就分别介绍一下这四种 ROUGE 计算方案。
 
+
+### ROUGE-N: N-gram Co-Occurrence Statistics
+
+ROUGE-N 的计算公式如下，用来统计候选摘要集合和参考摘要在 n-gram 上的召回率。
+  
+$$\mathrm{ROUGE-N}=\frac{\sum_{\mathrm{S}\in\{\mathrm{ReferenceSummaries}\}} \sum_{\mathrm{gram}_n \in \mathrm{S}}{\mathrm{Count}_{\mathrm{match}}{(\mathrm{gram}_n)}}}{\sum_{\mathrm{S}\in\{\mathrm{ReferenceSummaries}\}} \sum_{\mathrm{gram}_n \in \mathrm{S}}{\mathrm{Count}{(\mathrm{gram}_n)}}}$$
+  
+与 BLEU 不同的是， $\mathrm{Count}_{\matchrm{match}}(\matchrm{gram}_n)$ 
+用来计算一个候选摘要和参考摘要集合中 n-gram 的最大共现次数。
+另外， BLEU 是一个基于精确度的度量， ROUGE-N 是基于召回率的度量。
+  
+当参考摘要包含多条时，计算公式如下所示：
+  
+$$\matchrm{ROUGE-N}_{\matchrm{multi}}=\matchrm{argmax}_i{\matchrm{ROUGE-N}(r_i, s)}$$
+  
+这一计算方法同样也可以应用在 ROUGE-L 、 ROUGE-W 、 ROUGE-S 中。
+这里的计算使用了折裂过程（Jackknifing procedure），
+将 M 个参考摘要拆分为 M 组 M-1 个摘要。
+最终的 ROUGE-N 分数取 M 组参考摘要下 ROUGE-N 分数的平均值。
+  
+
+### ROUGE-L: Longest Common Subsequence
+
+
+
+### ROUGE-W: Weighted Longest Common Subsequence
+
+
+### ROUGE-S: Skip-Bigram Co-Occurrence Statistic
