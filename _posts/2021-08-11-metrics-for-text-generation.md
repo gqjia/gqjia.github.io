@@ -238,3 +238,6 @@ ROUGE-2 、 ROUGE-S4 、ROUGE-S9 、ROUGE-SU4 和 ROUGE-SU9 在去除停用词�
 
 以上就是 BLEU 和 ROUGE 这两个使用比较多的评价指标，
 其余比如说困惑度之类的有时间再总结吧，摸了。
+
+另外安利一下我编写的一个小工具[五艺](https://github.com/Moriarty12138/WuYi)。
+当前已经支持 BLEU 和 ROUGE 的计算。后续还会继续更新功能。
