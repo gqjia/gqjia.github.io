@@ -137,7 +137,7 @@ $$ \mathrm{R}_{\mathrm{lcs}}=\frac{\mathrm{LCS}(X, Y)}{m} $$
   
 $$ \mathrm{P}_{\mathrm{lcs}}=\frac{\mathrm{LCS}(X, Y)}{n} $$
   
-$$ \mathrm{F}_{\mathrm{lcs}}=\frac{(1+b^2)R_{lcs}P_{lcs}}}{R_{lcs}+b^2{P_{lcs}}} $$
+$$ \mathrm{F}_{\mathrm{lcs}}=\frac{(1+b^2)R_{lcs}P_{lcs}}{R_{lcs} + b^2 P_{lcs}} $$
   
 Melamed 使用 unigram F-measure 取得了跟 BLEU 相近的结果。
 使用 LCS 的一个有优点是不需要联系匹配，只需要按照顺序匹配。
