@@ -61,7 +61,7 @@ CMCL 的主要思想是使得成对的图像和文本在语义空间内拉近，
 不能作为图像文本对来进行训练，所以将其单独训练。
 将这些正负例子使用对比学习进行语义对齐，对比学习的 loss 如下：
   
-$$\mathrm{L}_{\mathrm{CMCL}}=-\mathrm{E}_{V,W}{-\mathrm{log}\frac{\sum_{(V^{+},W^{+}) \in \mathrm{X}^{+,I,T}} \mathrm{exp}(d(V^{+}, W^(+))/\tau)}{\sum_{(V',W') \in \mathrm{X}^{-,+,I,T}} \mathrm{exp}(d(V', W')/\tau)}}$$
+$$\mathrm{L}_{\mathrm{CMCL}}=-\mathrm{E}_{V,W}{-\mathrm{log}\frac{\sum_{(V^{+},W^{+}) \in \mathrm{X}^{(+,I,T)}} \mathrm{exp}(d(V^{+}, W^+ )/\tau)}{\sum_{(V',W') \in \mathrm{X}^{(-,+,I,T)}} \mathrm{exp}(d(V', W')/\tau)}}$$
   
 句子级别的重写可以直接使用回译。
 在检索文本时使用 TF-IDF 向量计算相似度，查找最相似的文本。
