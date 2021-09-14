@@ -80,11 +80,11 @@ $$\mathrm{L}_{\mathrm{CMCL}}=-\mathrm{E}_{V,W}{-\mathrm{log}\frac{\sum_{(V^{+},W
 具体做法是，在随机选择区域作为锚点（masking anchor），对与锚点重叠率大于0.3的区域进行 MASK 。
 公式如下：
   
-$$\mathrm{L}_{V}=\mathrm{E}_{V \in D}f_{\theta}(v_m\|v_{\\m})$$
+$$\mathrm{L}_{V}=\mathrm{E}_{V \in D}f_{\theta}(v_m|v_{\\m})$$
   
 对于图像文本对，则需要通过图像和文本的信息，对图像 MASK 的部分进行恢复：
   
-$$\mathrm{L}_V=\mathrm{E}_{V,W \in D}f_{\theta}(v_m\|v_{\\m}, W)$$
+$$\mathrm{L}_V=\mathrm{E}_{V,W \in D}f_{\theta}(v_m|v_{\\m}, W)$$
   
 因为视觉特征是高维且连续的，所以使用特征回归和区域分类能够学得更好的视觉语义特征表示。
 特征学习的公式如下：
@@ -107,13 +107,13 @@ $$f_{\theta}(v_m|v_{\backslash m})=\sum_{i=1}^{M}{\mathrm{softmax}(s(h_{v_i}), c
 被选中的部分80%被替换为 $\[MASK\]$ ，10%被替换为随机 token ，10%保持原始 token 。
 训练计算公式如下：
   
-$$\mathrm{L}_{\mathrm{Bidirectional}}=-\mathrm{E}_{W \in D}\mathrm{log}P_{\theta}(w_m\|w_{\\m})$$
+$$\mathrm{L}_{\mathrm{Bidirectional}}=-\mathrm{E}_{W \in D}\mathrm{log}P_{\theta}(w_m|w_{\\m})$$
   
 在序列生成时，从序列中多次采样，直到达到25%。每次采样按照均匀分布采样。
 所有被选择的文本从原文中删除，然后拼接作为目标序列。
 剩余部分作为源序列。
   
-$$\mathrm{L}_{Seq2Seq}=-\mathrm{E}_{(S, T)}\mathrm{log}P_{\theta}(T\|S)$$
+$$\mathrm{L}_{Seq2Seq}=-\mathrm{E}_{(S, T)}\mathrm{log}P_{\theta}(T|S)$$
   
 
 # 实验部分
