@@ -89,11 +89,11 @@ $$\mathrm{L}_V=\mathrm{E}_{V,W \in D}f_{\theta}(v_m\|v_{\\m}, W)$$
 因为视觉特征是高维且连续的，所以使用特征回归和区域分类能够学得更好的视觉语义特征表示。
 特征学习的公式如下：
   
-$$f_{\theta}(v_m|v_{\\m})=\sum_{i=1}^{M}||r(h_{v_i})-v_i||^2$$  
+$$f_{\theta}(v_m|v_{\m})=\sum_{i=1}^{M}||r(h_{v_i})-v_i||^2$$  
   
 区域分类的计算：
   
-$$f_{\theta}{v_m\|v_{\\m}}=\sum_{i=1}^{M}{\mathrm{softmax}(s(h_{v_i}), c(v_i))}$$
+$$f_{\theta}(v_m\|v_{\m})=\sum_{i=1}^{M}{\mathrm{softmax}(s(h_{v_i}), c(v_i))}$$
 
 
 ## 文本的训练
