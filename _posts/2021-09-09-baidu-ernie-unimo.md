@@ -168,4 +168,3 @@ UNIMO 在所有的多模态任务上都超越了先前的结果，这一结果�
 GSum 的22.32，SimCLS 的22.15。([NLP摘要任务的研究进展](https://nlpprogress.com/english/summarization.html) )
   
 话说，比赛开源的 UNIMO 模型是可以做中文任务的，论文也没提到中文任务的事情啊？！
-
