@@ -93,7 +93,7 @@ $$f_{\theta}(v_m|v_{\backslash m})=\sum_{i=1}^{M}||r(h_{v_i})-v_i||^2$$
   
 区域分类的计算：
   
-$$f_{\theta}(v_m\|v_{\backslash m})=\sum_{i=1}^{M}{\mathrm{softmax}(s(h_{v_i}), c(v_i))}$$
+$$f_{\theta}(v_m|v_{\backslash m})=\sum_{i=1}^{M}{\mathrm{softmax}(s(h_{v_i}), c(v_i))}$$
 
 
 ## 文本的训练
