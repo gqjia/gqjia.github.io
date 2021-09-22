@@ -87,3 +87,69 @@ GLM 选择文本中的一个片段进行 MASK ，并不像 BERT 和 SpanBERT 一
 并采用了二维位置编码的策略保存 \[MASK\] 的长度信息。
 GLM是第一个在自然语言理解、条件生成和无条件生成等所有类型任务中同时实现最佳性能的模型。
   
+![预训练模型网络结构和下游任务](../images/posts/2021-09-08-pretrain-models-past-present-and-future/framework_and_downloadstream.png)
+  
+Seq2Seq 结构最早的模型是 MASS ，MASS 将预测 MASK 的机制加入到编码解码结构中。
+但是也没有解决用可变长度的文本填充空白的问题（GLM之前基于编码器或者解码器的预训练语言模型都存在这一问题）。
+  
+T5 则是通过 MASK 一个片段来解决这一问题。
+  
+BART 则是通过截断、删除、替换、打乱和 MASK 多个策略处理源文本。
+在这一方向上针对具体任务的预训练语言模型包括 PEGASUS 和 PALM 。
+  
+基于 Seq2Seq 预训练语言模型主要问题是参数量更多，而且通常在 NLU 任务上表现不好。
+  
+## 受到认知影响的结构（Cognitive-Inspired Architectures）
+  
+这部分的工作主要在可维护的工作记忆（maintainable working memory）和可持续性长期记忆（sustainable long-term memory）方向。
+maintainable working memory 方向的工作主要有 
+Transformer-XL（ segment-level recurrence 和相对位置编码）、 
+CogQA（在多跳阅读中维持一个认知图）、 
+CogLTX（使用 MenRecall 模型选择句子，并用另一个模型生成或选择答案）。
+sustainable long-term memory 方向的工作主要有 REALM、RAG。
+前者通过样本维度的记忆提升长距离理解能力，后者则是信息提前编码，
+再通过检索获取需要的信息。
+  
+## 其他方向
+  
+其他方向的改进主要集中在 MASK 策略上，
+Span-BERT 提出的 SBO （span boundary objective） 预训练任务的思路在 ERNIE、 NEZHA 和 Whole Word Masking 上都有体现（这可以被看作是一种数据增强）。
+  
+另一种则是将预测 MASK 的任务目标改的更加困难，比如 ELECTRA 的 RTD（replace token detection）
+需要一个生成器生成原始 token ，一个判别器判断 token 是否被替换。
+  
+# 多源数据
+  
+这部分的研究主要在跨语言、多模态和融合知识信息上。
+  
+## 跨语言
+  
+在 BERT 出现之前，跨语言模型主要通过参数共享和学习语言无关的约束两个方式学习到跨语言的参数表示。
+在 BERT 出现之后，模型可以直接在多跨语言非平行语料上进行预训练。
+mBERT 在模型结构没有变得情况下，使用104种语言的 Wikipedia 语料库上进行了预训练。
+XLM-R 构建了一个100种语言的非平行语料库 CC-100 。
+  
+MMLM（multilingual masked language）预训练任务不能很好的适应平行预料，
+但是对于翻译任务来说平行语料又非常的重要。
+为此 XLM 提出了 TLM（translation language modeling） 预训练任务，
+在双语句子对上进行预训练。
+除此之外，Unicoder 提出了两种预训练任务 CLWR 和 CLPC ；
+ALM 通过平行语料基于代码生成文本，然后在此基础上进行 MLM 预训练任务。
+InfoXLM 从信息论的角度对 MMLM 和 TLM 进行了分析，使用对比学习进行训练。
+HICTL 拓展了使用对比学习让模型学习句子级和单词级语义表征的想法。
+ERNIE-M 提出了 BTMLM（back-translation masked language） 利用反译拓展了平行语料库的规模。
+  
+在 Seq2Seq 结构的预训练语言模型中， mBART 通过添加特殊符号使得 DAE（denoising autoencoding） 支持多语言；
+XNLG 则是提出了 XAE（cross-lingual autoencoding） 训练任务。
+  
+## 多模态
+  
+图像-文本的跨模态语言模型的主要难点在于如何将非文本信息集成到 BERT 框架中。
+ViLBERT 通过对图像和文本数据进行预处理，
+将 BERT 拓展为支持两个输入流的图像和文本的多模态模型。
+它使用三个预训练任务：MLM、 SIA（sentence-image alignment） 和 MRC（masked region classification）。
+下游任务包括五个： VQA（visual question answering）、 GRE（grounding referring expressions）、
+ITIR（image-text retrieval）、 ZSIR（zero-shot imagetext retrieval）。
+LXMERT 在 ViLBERT 的基础上使用了更多的与训练任务： MLM 、 SIA、 MRC、MRFR（masked region feature regression） 和 VQA 。
+LXMERT 的下游任务只有三个： VQA、 GQA（graph question answering） 和 NLVR2（natural language for visual reasoning）。
+  
