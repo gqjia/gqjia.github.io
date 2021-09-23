@@ -152,4 +152,70 @@ ViLBERT 通过对图像和文本数据进行预处理，
 ITIR（image-text retrieval）、 ZSIR（zero-shot imagetext retrieval）。
 LXMERT 在 ViLBERT 的基础上使用了更多的与训练任务： MLM 、 SIA、 MRC、MRFR（masked region feature regression） 和 VQA 。
 LXMERT 的下游任务只有三个： VQA、 GQA（graph question answering） 和 NLVR2（natural language for visual reasoning）。
+VisualBERT 拓展了 BERT 的结构，预训练采用 MLM 和 IA ，下游任务有 VQA 、 VCR、 NLVR2 和 ITIR 。
+Unicoder-VL、VL-BERT都在 VisualBERT 的基础上做了改进。
+B2T2、VLP、UNITER则是针对特定下游任务做了优化。
   
+X-GPT 则是面向生成任务，
+它的预训练任务包括 IMLM（image-conditioned masked language modeling）、 IDA（image-conditioned denoising autoencoding）、TIFG（ text-conditioned image feature generation），
+下游任务只有 IC（image captioning）。
+Oscar 使用目标检测得到的标签作为锚点，简化图像和文本的对齐。这一方法在六个下游任务上取得很好的效果： ITIR、 IC、 NOC（novel object captioning）、 VQA、 GCQ、 NLVR2。
+图像到文本生成领域的研究有 DALLE、 CogView。
+  
+近期的研究主要有 CLIP 和 WenLan ，它们都在大规模的数据上进行了预训练。
+
+## 知识上的预训练
+  
+对于结构化的知识，许多研究通过融入实体和关系的表征或者将其和文本进行对齐。
+有些研究将知识图中的路径或者子图视为一个整体，
+通过与对齐后的文本进行建模，
+从而保留更多的结构化信息。
+这种对齐工作往往非常的复杂，
+为此也有研究工作研究文本和知识的自动对齐。
+  
+非结构化数据在包含更多的信息时，也有更多的噪声。
+现有的工作一般通过预训练将知识隐含的存储于模型参数中。
+
+  
+# 计算效率方向的改进
+
+这部分就简单讲一下。
+  
+提高计算效率可以从三个方面入手：系统级的优化；更高效的学习算法和模型压缩。
+  
+对于单卡计算效率的优化可以采用 fp16 ，虽然会损失部分精度，但是可以大幅度提高计算效率。
+fp16 有时会遇到浮点截断和溢出的情况，为此可以采用混合精度计算。
+对于预训练时内存消耗过大的问题，有些研究使用 ZeRO-Offload 的策略调度 CPU 内存和 GPU 内存，
+让内存交换和设备计算尽可能重叠。
+  
+多卡训练可以采用模型并行的方案，将模型参数分布到不同的节点，
+通过节点间的通信确保前向和反向计算的正确。
+模型并行在进行通信时，不能同时进行计算，而数据并行时可以同时进行反向计算。
+并且数据并行可以缓解对内存的需求。
+数据并行时，优化器的状态存在冗余，
+为此 ZeRO 优化器可以对数据并行的每个节点平均划分和分配优化器状态。
+  
+除去上述方法，还有一种并行方法是管道并行（pipeline parallelism），
+它将神经网络划分为多层，将不同层放在不同的节点上，
+计算完每个节点后将输出发送到下一层计算所在的节点上。
+这样只需要相邻层的节点间保证通信即可。
+这样的研究有 GPipe 和 Terapipe 。
+  
+在预训练算法上思路主要有两种，
+一种是设计更高效的预训练学习方法，
+一种是设计更高效的模型结构。
+  
+MLM 的预训练任务中 MASK token 时，
+通常是从所有 token 中选择一个子集，对子集中的 token 进行 MASK，
+ELECTRA 使用了检测 token 是否被替换的训练任务，这样就可以利用所有的 token，
+只需要较小的步就能达到类似的效果。
+除此之外，也有研究在反向传播或者梯度计算时，根据 token 的重要性 MASK 部分 token 。
+  
+warmup 的策略可以缓解模型刚开始训练因为 batch 过大导致模型很难达到最优的问题。
+一些研究表明预训练模型不同层可以共享自注意力模式，
+因此可先训练一个较浅的模型，然后通过复制将其变为一个较深的模型。
+在训练时也可以删除一些层以降低反向传播和权重更新的复杂性。
+此外在 batch 较大的时候不同层使用不同的学习率可以加快收敛速度。
+  
+在模型结构上，主要研究工作在降低 Transformers 结构的复杂度。
+
