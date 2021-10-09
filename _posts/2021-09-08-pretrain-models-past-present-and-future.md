@@ -292,6 +292,30 @@ TernaryBERT 将知识蒸馏用在模型量化上，用一个低 bit 的模型模
 
 ## 理论分析
   
-预训练语言模型还存在一些理论解释上的假设： 
+还有研究对 PTMs 在理论解释上进行假设和分析： 
   
-有研究认为预训练之所以有效是因为存在更好的优化（optimization）和更好的正则（regularization）。
+有研究认为预训练之所以有效是因为存在更好的优化（better optimization）
+和更好的正则（better regularization）。
+前者使得模型相比随机初始化更接近全局最优，
+后者使得模型有更好的泛化性。
+实验结果更倾向于 PTMs 有更好的正则。
+  
+其他一些研究则在对比学习上，
+对无监督的对比表征学习（contrastive unsupervised representation learning）进行了分析。
+还有研究提出了一种框架弥补预训练和微调阶段的差别（gap）。
+他们提出了一个 latent classes 的概念，
+latent classes 可以覆盖下游任务的所有 classes，
+语义相似的文本对（pair）属于同一个 latent class 。
+并且研究证明对比学习的 loss 是下游 loss 的上界，
+因此优化预训练 loss 可以降低下游任务的 loss。
+  
+# 未来发展方向
+目前看来 PTMs 的研究方向主要包括7个：
+模型结构和预训练方法；
+多语言和多模态的预训练；
+模型效率；
+理论基础；
+模型边缘学习（Modeledge Learning）；
+认知学习（cognitive learning）；
+新的应用方向。
+
