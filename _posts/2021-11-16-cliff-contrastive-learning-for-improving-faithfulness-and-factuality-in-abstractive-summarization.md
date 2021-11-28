@@ -38,7 +38,7 @@ date: 2021-11-16 10:03:01
 
 论文设计了一个基于对比学习的文本摘要训练框架，文章x包含一组参考摘要P和一组错误摘要N，对比学习的优化目标为：
 
-![image-20211128183326401](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128183326401.png)
+![image-20211128183326401](../images/posts/image-20211128183326401.png)
 
 * $h_i$ 、$h_j$和$h_k$ 代表摘要$y_i$  、$y_j$和$y_k$ 的语义表征
 * $sim(.,.)$用于计算余弦相似度
@@ -46,7 +46,7 @@ date: 2021-11-16 10:03:01
 
 损失函数由交叉熵损失和对比学习损失函数组成:
 
-![image-20211128183419551](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128183419551.png)
+![image-20211128183419551](../images/posts/image-20211128183419551.png)
 
 ## 摘要文本的表征
 
@@ -152,7 +152,7 @@ BATCH 在训练时每个batch使用其他数据作为负例。
 
 ## 实验
 
-![image-20211128185811627](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128185811627.png)
+![image-20211128185811627](../images/posts/image-20211128185811627.png)
 
 CLIFF在使用摘要的表征时使用MLP计算得到所有token表征的平均。与其他提高模型事实一致性的策略相比，几乎所有的CLIFF模型在QuestEval上都取得了更高的分数，在XSum上更为明显。CLIFF模型的ROUGE分数与使用交叉熵训练的基线相当或者更好，在CNN/DM数据集上。FactCC也具有类似的趋势，特别是是在使用PEGASUS作为基础模型时。
 
@@ -164,21 +164,21 @@ ENTAILRANK倾向于生成更高的FactCC分数，相比其他使用交叉熵的�
 
 CLIFF在抽象程度更高的数据集上取得了更好的效果。负例不仅提高了FactCC在两个数据集上的得分，而且提高了ROUGE-L。这说明系统生成的摘要创造了更多错误，特别适合使用CLIFF。使用关系创建的负例取得更好的效果，后续可以将实体驱动的方法引导到更注意关系的方向。
 
-![image-20211128190027465](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128190027465.png)
+![image-20211128190027465](../images/posts/image-20211128190027465.png)
 
 组合策略，结合SYSLOWCON和其他策略，比任何单一策略训练的负样本模型获得更好的QuestEval分数（MASKENT和REGENENT除外）。这说明在负样本中覆盖不同类型错误的重要性。
 
-![image-20211128190050001](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128190050001.png)
+![image-20211128190050001](../images/posts/image-20211128190050001.png)
 
 在信息含量和事实一致性方面优于、等于、低于CRSENTROPY。在抽象程度更高的数据集XSum上，低置信度的CL方法在信息和事实一致性上取得了更好的评价。CLIFF采用了BATCH和SYSYLOWCON两种方法设计。
 
-![image-20211128190116663](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128190116663.png)
+![image-20211128190116663](../images/posts/image-20211128190116663.png)
 
 在CNNDM上所有使用负例的模型都能产生信息量和真实性高的文本。相比之下，ENTAILRANK摘要和CRSENTROPY两个数据集上的输出区别更小。
 
 在生成摘要的错误方面，CL减少了两种错误比ULL更为有效观察发现生成摘要在世界知识上也有一定的减少。
 
-![image-20211128190135136](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128190135136.png)
+![image-20211128190135136](../images/posts/image-20211128190135136.png)
 
 对CRSENTROPY，采用人工标注判断是否删除/修改了不正确的内容。使用CL在使用专用名词和数字替换错误上比 ULL 和 隐含信息重新排序 更加频繁。
 
@@ -190,7 +190,7 @@ CLIFF在抽象程度更高的数据集上取得了更好的效果。负例不仅
 
 2. 是否需要MLP？
 
-![image-20211128190321509](D:\GitHub\Moriarty12138.github.io\images\posts\image-20211128190321509.png)
+![image-20211128190321509](../images/posts/image-20211128190321509.png)
 
 根据实验，采用所有token表征的平均和MLP能取得最好的效果。
 
