@@ -4,31 +4,33 @@
 
 自从18年BERT预训练语言模型在NLP领域的发展，许多研究者也看到了多模态预训练的发展机会。从LXMERT、VLBERT、ViLBRET、UNITER、UNIMO、OSCAR、VisualBert、VLP到去年的ViLT、VinVL、SOHO、SimVLM、METER等，许多关于多模态预训练的文章也应运而生。
 
-![image-20220315102311377](../images/posts/image-20220315102311377.png)
+![image-20220318142258517](../images/posts/image-20220318142258517.png)
 
 多模态预训练语言模型按照结构分为单流和双流。单流模型中，视觉特征和文本特征一开始就拼接在一起，然后直接输入到编码器中；双流模型就是将视觉特征和文本特征首先在两个独立的编码器中进行编码，然后再输入到 cross attention 进行多模态特征的融合。
 
+![image-20220315102311377](../images/posts/image-20220315102311377.png)
+
+> 单流模型的定义：只使用self-attention来学习模态内和模态间的联系。
+>
+> 双流模型的定义：专注于学习模态之间的联系，比如cross-attention，co-attention。基本上，transformer时代到来之前，都是双流模型。
+
 多模态预训练语言模型的主要研究方向分为三种：模型结构、预训练任务和预训练数据。模型对比如下：
 
-|    模型    | 时间 | 预训练数据                                                   | 模型结构                                                     | 预训练任务                                 | 下游任务                                                     | 算力花费          |
-| :--------: | :--: | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------ | ------------------------------------------------------------ | ----------------- |
-|   LXMERT   |  19  | MSCOCO、VG、GQA等，总共91.8M 图像-文本对，180K不同的图片     |                                                              |                                            |                                                              | 10天 5 * Titan Xp |
-|  ViLBERT   |  19  | ConCeptual Captions                                          | 双流结构、通过 co-attentional transformer 层将图像和文本信息进行结合 | MLM、NSP、multi-modal alignment prediction | visual question answering、visual commonsense resoning、referring expression Comprehension、image-test retrieval | 8 * TitanX        |
-|   UNITER   |  20  | COCO、VG、SBU、ConCeptual Captions                           |                                                              |                                            |                                                              |                   |
-|   UNIMO    |      |                                                              |                                                              |                                            |                                                              |                   |
-|   Oscar    |  20  | COCO、ConCeptual Captions等，总共6.5M图片-文本-标签对，4.1M的图片 |                                                              |                                            |                                                              | 64 * V100         |
-| VisualBert |      |                                                              |                                                              |                                            |                                                              | 8 * TitanX        |
-|    VLP     |      |                                                              |                                                              |                                            |                                                              |                   |
-|    ViLT    |  21  | MSCOCO、VG、SBU、ConCeptual Captions，总共4M图片、奖金10M的文本 |                                                              |                                            |                                                              |                   |
-|   VinVL    |      |                                                              |                                                              |                                            |                                                              |                   |
-|  E2E-VLP   |  21  | COCO、VG，总共6.01M图片-文本对，180K不同的图片               |                                                              |                                            |                                                              | 8 * V100          |
-|    SOHO    |  21  | MSCOCO、VG                                                   |                                                              |                                            |                                                              | 32 * Tesla V100   |
-|   SimVLM   |  21  | ALIGN：1.8B图片-文本对，C4：纯文本数据集                     |                                                              |                                            |                                                              | 512 *             |
-|   METER    |      |                                                              |                                                              |                                            |                                                              |                   |
-| ERNIE-ViL  |      |                                                              |                                                              |                                            |                                                              |                   |
-|    UniT    |      |                                                              |                                                              |                                            |                                                              |                   |
-|            |      |                                                              |                                                              |                                            |                                                              |                   |
-|            |      |                                                              |                                                              |                                            |                                                              |                   |
+| 模型       | 时间 | 预训练数据                                                   | 模型结构                                                     | 预训练任务                                                   | 下游任务                                                     | 算力花费          |
+| ---------- | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------------- |
+| ViLBERT    | 19   | ConCeptual Captions                                          | 双流结构、通过 co-attentional transformer 层将图像和文本信息进行结合 | MLM、NSP、multi-modal alignment prediction                   | VQA、visual commonsense resoning、referring expression Comprehension、image-test retrieval | 8 * TitanX        |
+| VisualBERT | 19   | COCO caption                                                 | 单流结构                                                     | MLM、sentence-image prediction                               | VQA、VCR、NLVR、image-test retrieval                         | 8 * TitanX        |
+| LXMERT     | 19   | MSCOCO、VG、GQA等，总共91.8M 图像-文本对，180K不同的图片     | 双流结构、通过Cross-Modality Encoder将图像和文本编码结果进行结合 | MLM、Masked Object Prediction、Cross-Modality Matching、Image Question Answering | VQA、GQA、NLVR                                               | 10天 5 * Titan Xp |
+| UNITER     | 19   | COCO、VG、SBU、ConCeptual Captions                           | 单流结构                                                     | MLM、ITM、MRM                                                | VQA、Visual Entailment、NLVR、visual commonsense resoning、referring expression Comprehension、image-test retrieval |                   |
+| Oscar      | 20   | COCO、ConCeptual Captions等，总共6.5M图片-文本-标签对，4.1M的图片 | 单流结构                                                     | Oscar                                                        | Image-Text retrieval、VQA、NLVR、GQA、Image Captioning on COCO | 64 * V100         |
+| ERNIE-ViL  | 20   | Conceptual Caption 、 SBU Caption                            | 双流结构                                                     | BERT采用MLM预训练（knowledge masking strategy）；三个多模态的场景图预测（Scene Graph Peddiction）；物体检测（Attribute Prediction）；关系预测（Relationship Prediction）;MLM、Masked Region Prediction、Image-Text Matching | Visual Commonsense Reasoning（VCR）、VQA、Grounding Referring Expressions、Image-Text Retrieval |                   |
+| UNIMO      | 20   | BookWiki、OpenWebText、OpenImage、COCO、Visual Genome、Conceptual Captions、SBU Captions | 单流结构                                                     | Text Rewriting、Image-Text Retrieval、bidirectional prediction、Seq2Seq generation | 生成式对话型问答（CoQA）、生成式摘要（CNN/DM）、句子压缩（Gigaword）、情感分析（SST）、自然语言推理（MNLI）、语言可接受性分析（CoLA）、语义相似度分析（SST-B）、VQA（VQAv2.0）、看图说话（Microsoft COCO Captions）、视觉隐含（SLNI-VE）、image-test retrieval（Flickr20k） | 64 * V100         |
+| ViLT       | 21   | MSCOCO、VG、SBU、ConCeptual Captions，总共4M图片、奖金10M的文本 | 单流结构                                                     | ITM、MLM                                                     | VQA、NLVR、image-test retrieval                              | 1*P40             |
+| VinVL      | 21   | 图像字幕数据集（COCO、Conceptual Captions， SBU captions、Flicker 30K）;VQA数据集（GQA、VQA、VG-QAs）；图像标记数据集（OpenImages的子集） | 单流结构                                                     | oscar的预训练任务                                            | VQA、GQA、Image Captioning、Image-Text Retrieval、NLVR2      |                   |
+| E2E-VLP    | 21   | COCO、VG，总共6.01M图片-文本对，180K不同的图片               | 单流结构                                                     | MLM、ITM                                                     | VQA、NLVR2、Image-Text Retrieval                             | 8 * V100          |
+| SOHO       | 21   | MSCOCO、VG                                                   | 单流结构                                                     | MLM、ITM、Masked Visual Modeling                             | VQA、NLVR、SNLI-VE、Text Retrieval、Image Retrieval          | 32 * Tesla V100   |
+| SimVLM     | 21   | ALIGN：1.8B图片-文本对，C4：纯文本数据集                     | 单流结构                                                     |                                                              | VQA、NLVR2、SNLI-VE、COCO Caption、NoCaps、                  | 512 *             |
+| METER      | 21   |                                                              |                                                              |                                                              |                                                              |                   |
 
 
 
@@ -62,17 +64,17 @@
 
 ## 多模态预训练任务
 
-### MLM预训练任务
+### Masked Cross-Modality LM
 
 ![image-20220315143747171](../images/posts/image-20220315143747171.png)
 
-在 Masked Language Modeling（MLM）预训练任务中，需要在 sentence tokens 中随机 MASK 掉一些 token，然后模型基于其他的本文 token 和所有的图像 token 来预测这些被 mask 掉的 token。
+在 Masked Cross-Modality LM 预训练任务中，需要在 sentence tokens 中随机 MASK 掉一些 token，然后模型基于其他的本文 token 和所有的图像 token 来预测这些被 mask 掉的 token。
 
 ### MRM预训练任务
 
 ![image-20220315144450419](../images/posts/image-20220315144450419.png)
 
-在 Masked Region Classification（MRC）预训练任务中，需要在 region token 中随机 mask 掉一些 token，然后根据其他的图片 token 和所有的文本 token 来预测这些被 mask 的 token。具体来说就是，每个 region 都会有 Faster R-CNN 得到一个 label，模型需要预测 mask token 的类别，使之和 Faster R-CNN 的 label 相同。
+在 Masked Region Classification（MRC）预训练任务中，需要在 region token 中随机 mask 掉一些 token，被 mask 的部分的特征全置为0，然后根据其他的图片 token 和所有的文本 token 来预测这些被 mask 的 token。具体来说就是，每个 region 都会有 Faster R-CNN 得到一个 label，模型需要预测 mask token 的类别，使之和 Faster R-CNN 的 label 相同。
 
 ### MRM预训练任务（MRC-KL）
 
@@ -84,7 +86,7 @@
 
 ![image-20220315144647653](../images/posts/image-20220315144647653.png)
 
-Image-TextMatching（ITM）中，需要对输入的 Image-Text Pair 随机替换 Image 或者 Text，最后预测输入的 Image 和 Text 是否有对应关系，所以这是一个二分类的问题。
+Image-Text Matching（ITM）中，需要对输入的 Image-Text Pair 随机替换 Image 或者 Text，最后预测输入的 Image 和 Text 是否有对应关系，所以这是一个二分类的问题。
 
 ### multi-modal alignment prediction
 
@@ -98,11 +100,35 @@ ViLBERT使用的预训练任务，判断文本与图片是否对齐。正样本�
 
 ### Visual Question Answering（VQA）
 
+VQA任务是介于CV任务和NLP任务的交集。VQA 的目的是开发出一种系统来回答有关输入图像的特定问题。答案可以采用以下任何形式：单词，短语，二元答案，多项选择答案或文本填空。
+
+QA任务和MRC任务是两种不同的任务，但有的时候两个可以相互结合。MRC任务强调能够阅读文本的能力，而QA任务强调能够回答给出的问题。完成QA任务需要用到不同的技术，有时需要用到MRC的技术。并不是所有的MRC技术都可以解决QA问题，MRC是让系统通过阅读学会理解文本的能力，这种能力可以通过不同的任务进行测试，也可以应用在不同的NLP任务中。
+
+![img](../images/posts/1nDdkbWb0jFQ3bT0rBflPDA.png)
+
+MRC的主要任务类型分为：完形填空（CLoze Style）、多项选择（Multiple Choice）、片段抽取（Span Prediction）和自由作答（Free-form Answer）。大多数MRC任务都是QA任务，也成为典型的机器阅读理解的任务（Typical MRC）。Pure VQA任务一般是没有引入额外的context，只是单纯的有（图， 问句， 回答）三元组，而Multimodal MRC任务，实际上就只是引入了额外的context作为VQA任务的知识，并且更加注重于自然语言的理解。
+
 ![image-20220315145121765](../images/posts/image-20220315145121765.png)
 
 VQA 就是对于一个图片回答图片内容相关的问题。将图片和问题输入到模型中，输出是答案的分布，取概率最大的答案为预测答案。
 
+#### DAQUAR （Dataset for Question Answering on Real World Images 真实世界图像问答数据集）
+
+DAQUAR数据集包含1449张图像，12468个问答对和2483个独特问题。通过人工注释生成问题；并使用NYU-Depth数据集的注释将问题限制在9个问题模板中。包含了6795张训练数据和5673张测试数据，所有图像来自于数据集NYU-DepthV2 Dataset。该数据集质量较差，一些图像杂乱无章，分辨率低，并且问题和回答有明显的语法错误。
+
+#### COCO-QA
+
+COCO-QA数据集比DAQUAR大得多。它包含123,287张来自可可数据集的图片。所有问题的答案都是一个单词，只有435个独一无二的答案。
+
+#### VQA v1
+
+
+
+#### VQA v2
+
 ViLBERT采用的数据集是VQA2.0数据集，包含1.1M关于COCO数据集的问题，每个问题包含10个答案。
+
+
 
 ### Visual Entailment
 
@@ -157,12 +183,6 @@ Referring Expression Comprehension 任务中，输入是一个句子，模型要
 ![https://pic1.zhimg.com/80/v2-a1fdb678ce69e8e5ec44bc7a59f2312c_720w.jpg](../images/posts/clip_image004-164732718039511.jpg)
 
 这个任务 Image-Text Matching 任务非常相似，所以在 fine-tune 的过程中就是选择 positive pair 和 negative pair 的方式来训练模型。
-
-
-
-
-
-
 
 ## 多模态预训练的研究工作
 
@@ -244,24 +264,12 @@ Facebook的人工智能研究人员提出，一个Transformer可能就是我们�
 
 
 
-### 文本摘要
+## 参考资料
 
-500字内文本，生成文本长度100字内，50W条。
-
-### 文本风格迁移
-
-100字内的平行文本句子对，30W条。
-
-### 文章生成
-
-20字内的输入文本，100字内的生成文本，20W条。
-
-爬取短新闻，根据标题生成新闻正文。（？）
-
-
-
-
-
+[^1]:[从VQA到多模态综述-Part1](https://zhuanlan.zhihu.com/p/468960316)
+[^2]:[从VQA到多模态综述-Part2](https://zhuanlan.zhihu.com/p/471359218)
+[^3]:[从VQA到多模态综述-Part3](https://zhuanlan.zhihu.com/p/475687261)
+[^4]:[从VQA到多模态综述-Part4](https://zhuanlan.zhihu.com/p/480029003)
 
 
 
