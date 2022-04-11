@@ -1,14 +1,14 @@
 # 多模态预训练模型
 
-![自然语言处理中预训练模型](../images/posts/v2-a356e4d42389d3da0a0352208d540677_1440w.jpg)
+![自然语言处理中预训练模型](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111418304.jpg)
 
 自从18年BERT预训练语言模型在NLP领域的发展，许多研究者也看到了多模态预训练的发展机会。从LXMERT、VLBERT、ViLBRET、UNITER、UNIMO、OSCAR、VisualBert、VLP到去年的ViLT、VinVL、SOHO、SimVLM、METER等，许多关于多模态预训练的文章也应运而生。
 
-![image-20220318142258517](../images/posts/image-20220318142258517.png)
+![image-20220318142258517](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111418798.png)
 
 多模态预训练语言模型按照结构分为单流和双流。单流模型中，视觉特征和文本特征一开始就拼接在一起，然后直接输入到编码器中；双流模型就是将视觉特征和文本特征首先在两个独立的编码器中进行编码，然后再输入到 cross attention 进行多模态特征的融合。
 
-![image-20220315102311377](../images/posts/image-20220315102311377.png)
+![image-20220315102311377](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111418103.png)
 
 > 单流模型的定义：只使用self-attention来学习模态内和模态间的联系。
 >
@@ -66,25 +66,25 @@
 
 ### Masked Cross-Modality LM
 
-![image-20220315143747171](../images/posts/image-20220315143747171.png)
+![image-20220315143747171](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419230.png)
 
 在 Masked Cross-Modality LM 预训练任务中，需要在 sentence tokens 中随机 MASK 掉一些 token，然后模型基于其他的本文 token 和所有的图像 token 来预测这些被 mask 掉的 token。
 
 ### MRM预训练任务
 
-![image-20220315144450419](../images/posts/image-20220315144450419.png)
+![image-20220315144450419](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419580.png)
 
 在 Masked Region Classification（MRC）预训练任务中，需要在 region token 中随机 mask 掉一些 token，被 mask 的部分的特征全置为0，然后根据其他的图片 token 和所有的文本 token 来预测这些被 mask 的 token。具体来说就是，每个 region 都会有 Faster R-CNN 得到一个 label，模型需要预测 mask token 的类别，使之和 Faster R-CNN 的 label 相同。
 
 ### MRM预训练任务（MRC-KL）
 
-![image-20220315144613678](../images/posts/image-20220315144613678.png)
+![image-20220315144613678](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419397.png)
 
 在 Masked Region Classification-KL Divergence（MRC-KL）预训练任务中，同样是随机 mask region token，但是不同的这里不是做分类任务，而是需要计算 Faster R-CNN 特征和 Mask region 的分布差异，使得 Mask region 的分布和 Faster R-CNN 特征的分布尽可能相似，所以损失函数用的是 KL 散度。
 
 ### ITM预训练任务
 
-![image-20220315144647653](../images/posts/image-20220315144647653.png)
+![image-20220315144647653](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419884.png)
 
 Image-Text Matching（ITM）中，需要对输入的 Image-Text Pair 随机替换 Image 或者 Text，最后预测输入的 Image 和 Text 是否有对应关系，所以这是一个二分类的问题。
 
@@ -92,7 +92,7 @@ Image-Text Matching（ITM）中，需要对输入的 Image-Text Pair 随机替�
 
 ViLBERT使用的预训练任务，判断文本与图片是否对齐。正样本采用电影图片及对应字幕，负样本随机对图片进行替换。
 
-![image-20220316112110157](../images/posts/image-20220316112110157.png)
+![image-20220316112110157](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419133.png)
 
 
 
@@ -104,11 +104,11 @@ VQA任务是介于CV任务和NLP任务的交集。VQA 的目的是开发出一�
 
 QA任务和MRC任务是两种不同的任务，但有的时候两个可以相互结合。MRC任务强调能够阅读文本的能力，而QA任务强调能够回答给出的问题。完成QA任务需要用到不同的技术，有时需要用到MRC的技术。并不是所有的MRC技术都可以解决QA问题，MRC是让系统通过阅读学会理解文本的能力，这种能力可以通过不同的任务进行测试，也可以应用在不同的NLP任务中。
 
-![img](../images/posts/1nDdkbWb0jFQ3bT0rBflPDA.png)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419287.png)
 
 MRC的主要任务类型分为：完形填空（CLoze Style）、多项选择（Multiple Choice）、片段抽取（Span Prediction）和自由作答（Free-form Answer）。大多数MRC任务都是QA任务，也成为典型的机器阅读理解的任务（Typical MRC）。Pure VQA任务一般是没有引入额外的context，只是单纯的有（图， 问句， 回答）三元组，而Multimodal MRC任务，实际上就只是引入了额外的context作为VQA任务的知识，并且更加注重于自然语言的理解。
 
-![image-20220315145121765](../images/posts/image-20220315145121765.png)
+![image-20220315145121765](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419739.png)
 
 VQA 就是对于一个图片回答图片内容相关的问题。将图片和问题输入到模型中，输出是答案的分布，取概率最大的答案为预测答案。
 
@@ -132,21 +132,21 @@ ViLBERT采用的数据集是VQA2.0数据集，包含1.1M关于COCO数据集的�
 
 ### Visual Entailment
 
-![https://pic3.zhimg.com/80/v2-7dad23489417389abef0d10e8199ab56_720w.jpg](../images/posts/clip_image002-16473271115882.jpg)
+![https://pic3.zhimg.com/80/v2-7dad23489417389abef0d10e8199ab56_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419042.jpg)
 
 在 Visual Entailment 中，Image 是前提，Text 是假设，模型的目标是预测 Text 是不是“Entailment Image”，一共有三中 label，分别是 Entailment、Neutral 和 Contradiction。
 
-![https://pic2.zhimg.com/80/v2-5a74beed5c7b20e47639aa02394a064d_720w.jpg](../images/posts/clip_image004-16473271115893.jpg)
+![https://pic2.zhimg.com/80/v2-5a74beed5c7b20e47639aa02394a064d_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419520.jpg)
 
 在 pipeline 中，将 Image 和 Text 输入到模型中，输出是三个 label 中的一个作为预测分类。
 
 ### Natural Language for Visual Reasoning
 
-![https://pic3.zhimg.com/80/v2-bb5c835cede597e5952e4eda40093f26_720w.jpg](../images/posts/clip_image002-16473271307804.jpg)
+![https://pic3.zhimg.com/80/v2-bb5c835cede597e5952e4eda40093f26_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419522.jpg)
 
 NLVR（Natural Language for Visual Reasoning）任务中，需要同时输入两张 Image 和一个描述，输出是描述与 Image 的对应关系是否一致，label 只有两种（true/false）。
 
-![https://pic4.zhimg.com/80/v2-9b75d31c1b9c1c8feade61c9ff17d303_720w.jpg](../images/posts/clip_image004-16473271307805.jpg)
+![https://pic4.zhimg.com/80/v2-9b75d31c1b9c1c8feade61c9ff17d303_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111419567.jpg)
 
 在 pipeline 中，将 Images 和 Text 输入到模型中，输出是两个 label 中的一个作为预测分类。
 
@@ -154,11 +154,11 @@ NLVR（Natural Language for Visual Reasoning）任务中，需要同时输入两
 
 VCR任务包含两个问题，一个是 visual question  answering（Q->A），一个是 answering justification（QA->R），这两个问题都是一多项选择的问题。
 
-![https://pic3.zhimg.com/80/v2-b629f7ffcf05a08bcf05d895c495cb2e_720w.jpg](../images/posts/clip_image002-16473271484136.jpg)
+![https://pic3.zhimg.com/80/v2-b629f7ffcf05a08bcf05d895c495cb2e_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420728.jpg)
 
 Visual Commonsense Reasoning 中，任务是以选择题形式存在的，对于一个问题有四个备选答案，模型必须从四个答案中选择出一个答案，然后再从四个备选理由中选出选择这个答案的理由。
 
-![https://pic2.zhimg.com/80/v2-760c8445c5aba95c383e415da34be54d_720w.jpg](../images/posts/clip_image004-16473271484187.jpg)
+![https://pic2.zhimg.com/80/v2-760c8445c5aba95c383e415da34be54d_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420184.jpg)
 
 在训练的过程中，我们将问题和四个备选答案连接到一起再分别与图片输入到模型中，输出为四个得分，得分最高的为预测答案。选择理由是过程也是类似。
 
@@ -166,21 +166,21 @@ Visual Commonsense Reasoning数据集包含290K个多项选择QA问题，问题�
 
 ### Referring Expression Comprehension
 
-![https://pic1.zhimg.com/80/v2-256ae4e9b57501f209b1e78f5accfb20_720w.jpg](../images/posts/clip_image002-16473271650208.jpg)
+![https://pic1.zhimg.com/80/v2-256ae4e9b57501f209b1e78f5accfb20_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420144.jpg)
 
 Referring Expression Comprehension 任务中，输入是一个句子，模型要在图片中圈出对应的 region。
 
-![https://pic4.zhimg.com/80/v2-143b954a48b4c260748b5f481c2bc7b7_720w.jpg](../images/posts/clip_image004-16473271650219.jpg)
+![https://pic4.zhimg.com/80/v2-143b954a48b4c260748b5f481c2bc7b7_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420919.jpg)
 
 对于这个任务，我们可以对每一个 region 都输出一个 score，score 最高的 region 作为预测 region。
 
 ###  Image-Text Retrieval
 
-![https://pic1.zhimg.com/80/v2-ac006f7ce607782326dda8f440023534_720w.jpg](../images/posts/clip_image002-164732718039510.jpg)
+![https://pic1.zhimg.com/80/v2-ac006f7ce607782326dda8f440023534_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420334.jpg)
 
 在 Image-Text Retrieval 任务中，就是给定一个模态的指定样本，在另一个模态的 DataBase 中找到对应的样本。
 
-![https://pic1.zhimg.com/80/v2-a1fdb678ce69e8e5ec44bc7a59f2312c_720w.jpg](../images/posts/clip_image004-164732718039511.jpg)
+![https://pic1.zhimg.com/80/v2-a1fdb678ce69e8e5ec44bc7a59f2312c_720w.jpg](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420571.jpg)
 
 这个任务 Image-Text Matching 任务非常相似，所以在 fine-tune 的过程中就是选择 positive pair 和 negative pair 的方式来训练模型。
 
@@ -188,11 +188,11 @@ Referring Expression Comprehension 任务中，输入是一个句子，模型要
 
 ### ViLBERT
 
-![image-20220315113201357](../images/posts/image-20220315113201357.png)
+![image-20220315113201357](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420986.png)
 
 ViLBERT采用双流的模型结构分别对图像和文本进行 embed ，再使用 co-attention 模型进行整合。
 
-![image-20220315170446641](../images/posts/image-20220315170446641.png)
+![image-20220315170446641](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420835.png)
 
 co-attention 通过交换多头注意力的key-value对，使得模型结构能够使得图像特征和文本特征进行融合。
 
@@ -200,7 +200,7 @@ BERT模型部分采用MLM和NSP的预训练任务，而ViLBERT采用了相似的
 
 论文在四个下游任务上进行了实验，分别是VQA、VCR、Referring Expressions 和 caption-Based Image Retrieval。
 
-![image-20220316093427802](../images/posts/image-20220316093427802.png)
+![image-20220316093427802](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420309.png)
 
 论文对比实验设计上，在VQA上对比DFAF模型，数据集采用VQA2.0数据集、VCR任务上对比R2C模型，RefCOCO+任务上对比MAttNet模型，caption-based image retrieval 任务上对比SCAN模型。
 
@@ -214,15 +214,15 @@ BERT模型部分采用MLM和NSP的预训练任务，而ViLBERT采用了相似的
 
 论文针对预训练任务中对于细节信息（对象、对象的属性和对象之间的关系）遗漏的问题，提出了一种结合场景图获取结构化知识提高视觉语言跨模态联合表示的多模态模型ERNIE-ViL 。ERNIE-ViL 利用视觉场景的场景图，在预训练阶段构建场景图预测任务，即对像预测、属性预测和关系预测。具体来说，这些预测任务是通过预测从场景中解析出来的场景图中不同类型的节点来实现的。因此，ERNIE-ViL 可以学习跨视觉和跨语言的细节语义对齐的联合表征。在对大规模图文对齐数据集进行预训练后，ERNIE-ViL在5个跨模式下游任务上取得最好的效果。
 
-![img](../images/posts/clip_image002.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420714.jpg)
 
 图中为 Flick 30K 数据集中的相似场景，在一些细节上存在不同，而这些细节决定了对场景的解释。（a）图中对象不同，分别为狗和猫。（b）图中对象的属性不同，狗玩的玩具具有不同的颜色。（c）图中人和自行车的关系不同，分别为骑行和修理。
 
-![img](../images/posts/clip_image004.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420048.jpg)
 
 场景图预测任务如上图所示。给定图像检测区域和文本标记序列，ERNIE-ViL使用双流跨模态 Transformer 对图像和文本的联合表示进行建模。基于使用场景图解析器从文本中解析出场景图，构建对象预测、属性预测和关系预测任务，以学习跨模态的详细语义对齐。
 
-![img](../images/posts/clip_image006.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111420500.jpg)
 
 模型在域外数据集 CC 和 SBU 数据集上进行预训练后，在5个下游任务上都取得了最好的效果。在视觉推理任务上， ERNIE-ViL_large 比 VLBERT_large 在VCR上午上有6.60%的显著提高。在 Visual grounding 任务中，ERNIE-ViL_large 在test A 和 test B 上比 VLBERT_large 提高了2.40%。在跨模态检索任务上，Ernie-VIL-BASE在图像检索的R@1上比Unicoder-VL-BASE在R@1上提高了2.94%，在文本检索上提高了0.50%。
 
@@ -232,27 +232,27 @@ Transformer架构在自然语言处理和其他领域的机器学习(ML)任务�
 
 一个自然产生的问题是：能否建立一个单一的Transformer，能够在多种模态下处理不同领域的广泛应用？最近，Facebook的一个人工智能研究团队进行了一个新的统一Transformer(UniT) encoder-decoder模型的挑战，该模型在不同的模态下联合训练多个任务，并通过一组统一的模型参数在这些不同的任务上都实现了强大的性能。
 
-![img](../images/posts/clip_image002-16473147811691.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421107.jpg)
 
 Transformer首先应用于sequence-to-sequence模型的语言领域。它们已经扩展到视觉领域，甚至被应用于视觉和语言的联合推理任务。尽管可以针对各种下游任务中的应用对预先训练好的Transformer进行微调，并获得良好的结果，但这种模型微调方法会导致为每个下游任务创建不同的参数集。
 
 Facebook的人工智能研究人员提出，一个Transformer可能就是我们真正需要的。他们的UniT是建立在传统的Transformer编码器-解码器架构上，包括每个输入模态类型的独立编码器，后面跟一个具有简单的每个任务特定的头的解码器。输入有两种形式：图像和文本。首先，卷积神经网络骨干网提取视觉特征，然后BERT将语言输入编码成隐藏状态序列。然后，Transformer解码器应用于编码的单个模态或两个编码模态的连接序列(取决于任务是单模态还是多模态)。最后，Transformer解码器的表示将被传递到特定任务的头，该头将输出最终的预测。
 
-![img](../images/posts/clip_image003.png)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421862.png)
 
 评估UniT的性能，研究人员进行了实验，需要共同学习来自不同领域的许多流行的任务：COCO目标检测和 Visual Genome数据集，语言理解任务的GLUE基准(QNLI, QQP、MNLI-mismatched SST-2)，以及视觉推理任务VQAv2 SNLI-VE数据集。
 
-![img](../images/posts/clip_image004.png)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421315.png)
 
-![img](../images/posts/clip_image005.png)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421186.png)
 
 多任务训练的UniT性能优于单独训练的目标检测和VQA。
 
-![img](../images/posts/clip_image007.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421011.jpg)
 
 基于UniT模型的目标检测与VQA的分析。
 
-![img](../images/posts/clip_image009.jpg)
+![img](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111421741.jpg)
 
 具有共享解码器的UniT模型的预测。
 
@@ -270,7 +270,6 @@ Facebook的人工智能研究人员提出，一个Transformer可能就是我们�
 [^2]:[从VQA到多模态综述-Part2](https://zhuanlan.zhihu.com/p/471359218)
 [^3]:[从VQA到多模态综述-Part3](https://zhuanlan.zhihu.com/p/475687261)
 [^4]:[从VQA到多模态综述-Part4](https://zhuanlan.zhihu.com/p/480029003)
-
 
 
 

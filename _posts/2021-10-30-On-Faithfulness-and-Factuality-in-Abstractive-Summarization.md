@@ -15,7 +15,7 @@ date: 2021-10-30 09:51:01
 
 ## 什么是幻觉（hallucinate）？
 
-![image-20211028172932130](../images/posts/image-20211028172932130.png)
+![image-20211028172932130](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111416944.png)
 
 就以论文中的例子来说，TCONVS2S生成的摘要中提到了“Former London mayoral candidate Zac Goldsmith” ，这在原文中是没有提到的。同样的的还有TRANS2S生成的“Former London mayor Sadiq Khan”。除此之外，PTGEN中的“UKIP leader Nigel Goldsmith”，以及 GOLD summary 中的“2016”都属于错误的信息，都被称为幻觉。
 
@@ -50,13 +50,13 @@ date: 2021-10-30 09:51:01
 
 ### 自动评估视角下的摘要质量
 
-![image-20211028205922082](../images/posts/image-20211028205922082.png)
+![image-20211028205922082](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111416951.png)
 
 从 ROUGE 和 BERTScore 来看，使用预训练的 BERTS2S 比其他模型要好的多。PTGEN 、TCONVS2S 和 TRANS2S 这三个没有使用预训练的模型表现比较相近。这说明预训练对于模型效果的提升是很显著的。
 
 ### 摘要模型产生幻觉的概率
 
-![image-20211029110128750](../images/posts/image-20211029110128750.png)
+![image-20211029110128750](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111417157.png)
 
 文章采用人工标注将摘要中幻觉片段全部标出，并判断幻觉属于内部幻觉还是外部幻觉。
 
@@ -78,7 +78,7 @@ BERTS2S 表现的效果要好的原因可能是由于模型在预训练阶段能
 
 ### 评估幻觉的方法
 
-![image-20211029171945770](../images/posts/image-20211029171945770.png)
+![image-20211029171945770](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111417769.png)
 
 文章使用文本蕴含和问答两种语义推理的方法对生成摘要进行评估。
 
@@ -90,7 +90,7 @@ BERTS2S 生成的摘要，包含关系的比例最高，甚至高于 gold summar
 
 在这一评估方法下，BERTS2S获得了最高的分数，而 gold summary 的得分反而最低。
 
-![image-20211029173729722](../images/posts/image-20211029173729722.png)
+![image-20211029173729722](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111417916.png)
 
 文章使用 spearman 对这几种评估方法与人工评价进行比较。
 
@@ -102,7 +102,7 @@ BERTS2S 生成的摘要，包含关系的比例最高，甚至高于 gold summar
 
 因为这一方法不需要依赖参考文本，因此可以用来做模型选择或者在解码阶段使用。文章对前者进行了研究。
 
-![image-20211030150215219](../images/posts/image-20211030150215219.png)
+![image-20211030150215219](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111417535.png)
 
 文章按照评估方法从 PTGEN、 TCONVS2S、TRANS2S、BERTS2S 四个模型生成的摘要中选择得分最高的摘要作为最终的摘要。
 

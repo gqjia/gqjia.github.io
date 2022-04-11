@@ -38,7 +38,7 @@ visual and vision-and-language data.`
 
 接下来看下这个 CMCL 是怎么做的。
 
-![CMCL](../images/posts/2021-09-09-baidu-ernie-unimo/CMCL.png)
+![CMCL](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111416055.png)
 
 对于文本数据 $\mathrm{W}$ ，经过 BPE 分词后转换为 $\mathrm{W}={\[CLS\], w_1, ..., w_n, \[SEP\]}$ 
 经过模型后获得深层语义表示 $h_{\mathrm{W}}={h_{\[CLS\]}, h_{w_1}, ..., h_{w_n}, h_{\[SEP\]}}$ 。
@@ -142,7 +142,7 @@ Microsoft COCO Captions：看图说话
 SLNI-VE：视觉隐含  
 Flickr20k：图像文本检索  
 
-![多模态和单模态任务实验结果](../images/posts/2021-09-09-baidu-ernie-unimo/single-model-tasks.png)  
+![多模态和单模态任务实验结果](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111416038.png)  
 
 UNIMO 在所有的多模态任务上普遍超越了先前的结果，这一结果证明了统一模态学习体系结构的有效性。
 在单模态对比实验上，加入了去除单模态训练的 UNIMO 模型进行了对比。
@@ -150,7 +150,7 @@ UNIMO 在所有的多模态任务上普遍超越了先前的结果，这一结�
 这说明多模态训练任务不能有效地适应单模态下游任务。
 在单模态任务上相比其他预训练语言模型（BERT 、RoBEARTa 、UniLM），UNIMO 都取得了一定的提升。
 
-![消融实验结果](../images/posts/2021-09-09-baidu-ernie-unimo/multi-model-tasks.png)  
+![消融实验结果](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111416308.png)  
 
 在去除文本训练的情况下，模型在多模态理解和生成任务上都持续下降。
 说明文本训练有助于图像任务的效果。

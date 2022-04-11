@@ -8,7 +8,7 @@ date: 2021-09-08 17:55:21
 [Pre-Trained Models: Past,Present and Future](http://keg.cs.tsinghua.edu.cn/jietang/publications/AIOPEN21-Han-et-al-Pre-Trained%20Models-%20Past,%20Present%20and%20Future.pdf) 。
 就以这篇论文的笔记作为开始吧。
 
-![Pre-Trained Models: Past,Present and Future](../images/posts/2021-09-08-pretrain-models-past-present-and-future/pratrain-models.png)
+![Pre-Trained Models: Past,Present and Future](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415515.png)
 
 这是清华大学悟道团队出的一篇讲预训练的论文。
 不得不说，这密密麻麻的作者和机构看起来就很唬人。
@@ -22,13 +22,13 @@ date: 2021-09-08 17:55:21
 后者则使用了自编码语言模型（autoencoding language modeling）作为预训练目标。
 一般而言， GPT 更擅长生成（NLG）任务， BERT 更擅长理解（NLU）任务。
 
-![GPT 和 BERT 的不同](../images/posts/2021-09-08-pretrain-models-past-present-and-future/difference-between-gpt-and-bert.png)
+![GPT 和 BERT 的不同](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415559.png)
 
 GPT 的预训练也是跟自回归语言模型一致，根据先前的文本最大化当前词的条件概率。
 在预训练之后通过微调（fine-tuning）适应下游任务。
 输入文本通过 GPT 获取最后一层的表示（representation），将其经过额外的输出层得到下游任务目标。
 
-![BERT 的预训练和微调](../images/posts/2021-09-08-pretrain-models-past-present-and-future/bert.png)
+![BERT 的预训练和微调](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415253.png)
 
 BERT 的预训练则采用了另一个思路，通过当前字两侧的文本预测当前字的概率。
 为此 BERT 采用了一个预训练任务 MLM （masked language modeling）。
@@ -59,7 +59,7 @@ BERT 会给每个输入 token 输出一个表示，这个表示可以用于序�
 
 后面详细讲一下各个方面的改进。
 
-![PTMs](../images/posts/2021-09-08-pretrain-models-past-present-and-future/PTMs.png)
+![PTMs](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415391.png)
 
 ## 结构上的改进
 
@@ -87,7 +87,7 @@ GLM 选择文本中的一个片段进行 MASK ，并不像 BERT 和 SpanBERT 一
 并采用了二维位置编码的策略保存 \[MASK\] 的长度信息。
 GLM是第一个在自然语言理解、条件生成和无条件生成等所有类型任务中同时实现最佳性能的模型。
 
-![预训练模型网络结构和下游任务](../images/posts/2021-09-08-pretrain-models-past-present-and-future/framework_and_downloadstream.png)
+![预训练模型网络结构和下游任务](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415935.png)
 
 Seq2Seq 结构最早的模型是 MASS ，MASS 将预测 MASK 的机制加入到编码解码结构中。
 但是也没有解决用可变长度的文本填充空白的问题（GLM之前基于编码器或者解码器的预训练语言模型都存在这一问题）。
