@@ -274,7 +274,43 @@ Facebook的人工智能研究人员提出，一个Transformer可能就是我们�
 
 ### ViT: A Image is Worth 16x16 Words Transormers for Image Recognition at Scale
 
-#### 论文动机
+论文一作是 Alexey Dosovitskiy 、 Kucas Beyer 、 Alexander Kolesnikov 、 Drik Weissenborn 、Xiaohua Zhai
+
+机构是 Google Reasearch, Brain Team
+
+论文是 ICLR 2021 的论文
+
+论文只开源了 [Fine-tuning 代码](https://github.com/google-research/vision_transformer)
+
+
+
+Transformer 在 CV 领域的使用存在局限（2020年），注意力机制一般用来连接卷积神经网络，或者用来替换卷积神经网络一定的组件而不改变整体的结构。这篇论文证明卷积神经网络不是必要的，而且一个纯 Transformer 能够直接将图片序列化（拆成一个个区域pathes），并在分类任务上取得很好的效果。论文提出的 ViT 模型在大量的图片数据上进行预训练，并将其迁移至下游的图像识别任务上，取得了最好的效果。
+
+论文作者将图片切分为一个个区域，并给这些区域提供一个线性的序列作为 Transformer 的输入。这些区域等同于 NLP 领域的 token。当使用同等规模数据集（中等规模的数据集，ImageNet）进行训练时，没有强正则的 Transformer 模型比 ResNet 低几个点。可能是由于卷积具有 Transformer 不具备的归纳偏置（inductive bias）[^6]，即平移等价性（tranlation equivariance）和局部性（locality）。因此在数据量不足的情况下，模型表现不佳。
+
+而当数据集很大的情况（14M-300M）下，论文发现大规模的数据训练能胜过卷积神经网络的归纳偏置。ViT在 ImageNet-21K 数据集和 JFT-300M 数据集上进行预训练后，在多个图像识别基准上超过了现有水平（ImageNet 88.55%，Image-ReaL 90.72%，CIFAR-100 94.55%，VTAB 77.63%）。
+
+
+
+**什么是归纳偏置？**[^6]
+
+归纳偏置在机器学习中是一种很微妙的概念：在机器学习中，很多学习算法经常会对学习的问题做一些**假设**，这些假设就称为归纳偏置(Inductive Bias)。归纳偏置这个译名可能不能很好地帮助理解，不妨拆解开来看：**归纳(Induction)**是自然科学中常用的两大方法之一(归纳与演绎, induction and deduction)，指的是从一些例子中寻找共性、泛化，形成一个比较通用的规则的过程；**偏置(Bias)**是指我们对模型的偏好。
+
+因此，归纳偏置可以理解为，从现实生活中观察到的现象中归纳出一定的规则(heuristics)，然后对模型做一定的约束，从而可以起到“模型选择”的作用，即从假设空间中选择出更符合现实规则的模型。其实，贝叶斯学习中的“**先验(Prior)**”这个叫法，可能比“归纳偏置”更直观一些。
+
+归纳偏置在机器学习中几乎无处不可见。老生常谈的“奥卡姆剃刀”原理，即希望学习到的模型复杂度更低，就是一种归纳偏置。另外，还可以看见一些更强的一些假设：KNN中假设特征空间中相邻的样本倾向于属于同一类；SVM中假设好的分类器应该最大化类别边界距离；等等。
+
+在深度学习方面也是一样。以神经网络为例，各式各样的网络结构/组件/机制往往就来源于归纳偏置。在卷积神经网络中，我们假设特征具有局部性(Locality)的特性，即当我们把相邻的一些特征放在一起，会更容易得到“解”；在循环神经网络中，我们假设每一时刻的计算依赖于历史计算结果；还有注意力机制，也是基于从人的直觉、生活经验归纳得到的规则。
+
+在自然语言处理领域赫赫有名的word2vec，以及一些基于共现窗口的词嵌入方法，都是基于分布式假设：A word’s meaning is given by the words that frequently appear close-by. 这当然也可以看作是一种归纳偏置；一些自然语言理解的模型中加入解析树，也可以类似地理解。都是为了选择“更好”的模型。
+
+CNN的inductive bias应该是locality和spatial invariance，即空间相近的grid elements有联系而远的没有，和空间不变性（kernel权重共享）；RNN的inductive bias是sequentiality和time invariance，即序列顺序上的timesteps有联系，和时间变换的不变性（rnn权重共享）。
+
+
+
+![image-20220413102102153](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204131021338.png)
+
+Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个图像 $\boldsymbol{x} \in \mathbb{R}^{H \times W \times C}$ 转换成图像切分区域的序列，每个序列 $x_p \in \mathbb{R}^{N \times (P^2 C)}$ 。区域的数量为 $N = HW / P^2$ 
 
 
 
@@ -299,5 +335,5 @@ Facebook的人工智能研究人员提出，一个Transformer可能就是我们�
 [^3]:[从VQA到多模态综述-Part3](https://zhuanlan.zhihu.com/p/475687261)
 [^4]:[从VQA到多模态综述-Part4](https://zhuanlan.zhihu.com/p/480029003)
 
-
-
+[^5]:["未来"的经典之作ViT：transformer is all you need!](https://zhuanlan.zhihu.com/p/356155277)
+[^6]:[如何理解Inductive bias？](https://www.zhihu.com/question/264264203)
