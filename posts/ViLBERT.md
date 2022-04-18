@@ -340,6 +340,27 @@ Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个�
 
 
 
+### M6: A Chinese Multimodal Pretrainer
+
+#### 论文贡献[^6]：
+
+1.  构建了最大的中文多模态预训练数据集。它覆盖广泛的领域，由超过 1.9TB 的图像和 292GB 的文本组成。
+2.  提出了一种跨模态预训练方法 M6，用于对单模态和多模态的数据进行统一预训练，并构建了最大的中文预训练模型，参数规模 10B/ 100B。
+3.  一系列下游应用展示了其出色的性能。此外，专门设计了一个由文本生成图像的下游任务，并表明微调的M6可以创建高分辨率和丰富细节的高质量图像。
+4.  通过精心设计的大规模分布式训练优化，M6在训练速度上具有明显优势，并大大降低了训练成本，为更广泛应用多模态预训练创造了可能
+
+#### 模型结构
+
+![image-20220418103631595](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204181036761.png)
+
+
+
+### Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity
+
+
+
+
+
 
 
 
@@ -353,3 +374,5 @@ Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个�
 
 [^5]:["未来"的经典之作ViT：transformer is all you need!](https://zhuanlan.zhihu.com/p/356155277)
 [^6]:[如何理解Inductive bias？](https://www.zhihu.com/question/264264203)
+[^7]:[多模态预训练模型——阿里M6](https://zhuanlan.zhihu.com/p/412793235)
+[^8]:[M6: A Chinese Multimodal Pretrainer阅读笔记](https://zhuanlan.zhihu.com/p/355452724)
