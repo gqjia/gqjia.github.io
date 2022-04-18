@@ -316,11 +316,27 @@ Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个�
 
 
 
+### CLIP
+
+
+
+### BLIP: Bootstrapping Language-Image Pre-training forUnified Vision-Language Understanding and Generation
 
 
 
 
 
+
+
+### M6: A Chinese Multimodal Pretrainer.
+
+
+
+
+
+
+
+### FILIP: Fine-grained Interactive Language-Image Pre-Training
 
 
 
