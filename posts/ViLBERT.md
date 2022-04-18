@@ -292,7 +292,29 @@ Transformer 在 CV 领域的使用存在局限（2020年），注意力机制一
 
 
 
-**什么是归纳偏置？**[^6]
+### ViT: A Image is Worth 16x16 Words Transormers for Image Recognition at Scale
+
+论文一作是 Alexey Dosovitskiy 、 Kucas Beyer 、 Alexander Kolesnikov 、 Drik Weissenborn 、Xiaohua Zhai
+
+机构是 Google Reasearch, Brain Team
+
+论文是 ICLR 2021 的论文
+
+论文只开源了 [Fine-tuning 代码](https://github.com/google-research/vision_transformer)
+
+
+
+#### 论文概述
+
+Transformer 在 CV 领域的使用存在局限（2020年），注意力机制一般用来连接卷积神经网络，或者用来替换卷积神经网络一定的组件而不改变整体的结构。这篇论文证明卷积神经网络不是必要的，而且一个纯 Transformer 能够直接将图片序列化（拆成一个个区域pathes），并在分类任务上取得很好的效果。论文提出的 ViT 模型在大量的图片数据上进行预训练，并将其迁移至下游的图像识别任务上，取得了最好的效果。
+
+论文作者将图片切分为一个个区域，并给这些区域提供一个线性的序列作为 Transformer 的输入。这些区域等同于 NLP 领域的 token。当使用同等规模数据集（中等规模的数据集，ImageNet）进行训练时，没有强正则的 Transformer 模型比 ResNet 低几个点。可能是由于卷积具有 Transformer 不具备的归纳偏置（inductive bias）[^6]，即平移等价性（tranlation equivariance）和局部性（locality）。因此在数据量不足的情况下，模型表现不佳。
+
+而当数据集很大的情况（14M-300M）下，论文发现大规模的数据训练能胜过卷积神经网络的归纳偏置。ViT在 ImageNet-21K 数据集和 JFT-300M 数据集上进行预训练后，在多个图像识别基准上超过了现有水平（ImageNet 88.55%，Image-ReaL 90.72%，CIFAR-100 94.55%，VTAB 77.63%）。
+
+
+
+#### 什么是归纳偏置？[^6]
 
 归纳偏置在机器学习中是一种很微妙的概念：在机器学习中，很多学习算法经常会对学习的问题做一些**假设**，这些假设就称为归纳偏置(Inductive Bias)。归纳偏置这个译名可能不能很好地帮助理解，不妨拆解开来看：**归纳(Induction)**是自然科学中常用的两大方法之一(归纳与演绎, induction and deduction)，指的是从一些例子中寻找共性、泛化，形成一个比较通用的规则的过程；**偏置(Bias)**是指我们对模型的偏好。
 
@@ -308,9 +330,63 @@ CNN的inductive bias应该是locality和spatial invariance，即空间相近的g
 
 
 
+#### 模型结构
+
 ![image-20220413102102153](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204131021338.png)
 
-Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个图像 $\boldsymbol{x} \in \mathbb{R}^{H \times W \times C}$ 转换成图像切分区域的序列，每个序列 $x_p \in \mathbb{R}^{N \times (P^2 C)}$ 。区域的数量为 $N = HW / P^2$ 
+Transformer 模型能够接收 1D 的序列作为输入，因此需要将一个图像 $\boldsymbol{x} \in \mathbb{R}^{H \times W \times C}$ 转换成图像切分区域（path）的序列，每个序列 $x_p \in \mathbb{R}^{N \times (P^2 C)}$ 。区域的数量为 $N = HW / P^2$ ，其中 $(H, W)$ 是原始图像的分辨率、 $C$ 是原始图像的通道数、$(P, P)$ 是每个图像区域的分辨率。由于 Transformer 的每一层使用的是一个 $D$ 维的向量，因此需要使用一个可训练的线性投影将区域映射为一个 $D$ 维的向量。这个输出的投影被称为区域嵌入（path embedding）。
+
+跟 BERT 的[CLS] token 一样，ViT 使用 [CLASS] 作为区域序列的起始 token ，对应的输出作为图像的表征。在预训练时，使用一个带一层隐层的 MLP 作为分类头（classification head）；微调时，使用单个线性层作为分类头。
+
+位置编码部分使用可学习的位置编码。之所以采用一维的编码是因为论文发现模型并没有从二维的位置编码中获得明显的收益。
+
+#### 模型试验
+
+作者设计了三个尺度的 ViT 模型：
+
+![image-20220414165607683](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141656793.png)
+
+![image-20220414165821658](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141658720.png)
+
+ViT并不像CNN那样具有inductive bias，论文中发现如果如果直接在ImageNet上训练，同level的ViT模型效果要差于ResNet，但是如果在比较大的数据集上petraining，然后再finetune，效果可以超越ResNet。比如ViT在Google私有的300M JFT数据集上pretrain后，在ImageNet上的最好Top-1 acc可达88.55%，这已经和ImageNet上的SOTA相当了（Noisy Student EfficientNet-L2效果为88.5%，Google最新的SOTA是Meta Pseudo Labels，效果可达90.2%）[^5]。
+
+那么ViT至少需要多大的数据量才能和CNN旗鼓相当呢？这个论文也做了实验，结果如下图所示，从图上所示这个预训练所使用的数据量要达到100M时才能显示ViT的优势。transformer的一个特色是它的scalability：当模型和数据量提升时，性能持续提升。在大数据面前，ViT可能会发挥更大的优势[^5]。
+
+![image-20220414170228986](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141702066.png)
+
+此外，论文中也对ViT做了进一步分析，如分析了不同layers的mean attention distance，这个类比于CNN的感受野。论文中发现前面层的“感受野”虽然差异很大，但是总体相比后面层“感受野”较小，而模型后半部分“感受野”基本覆盖全局，和CNN比较类似，说明ViT也最后学习到了类似的范式[^5]。
+
+![image-20220414170318207](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141703269.png)
+
+当然，ViT还可以根据attention map来可视化模型具体关注图像的哪个部分，从结果上看比较合理[^5]：
+
+![image-20220414170422816](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141704934.png)
+
+ViT的后续工作[^5]：
+
+- [DeiT] Training data-efficient image transformers & distillation through attention
+- [T2T-ViT] Tokens-to-Token ViT: Training Vision Transformers from Scratch on ImageNet
+- [CPVT] Do We Really Need Explicit Position Encodings for Vision Transformers?
+- [PVT] Pyramid Vision Transformer: A Versatile Backbone for Dense Prediction without Convolutions
+- [TNT] Transformer in Transformer
+
+
+
+
+
+### ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision
+
+
+
+目前参数量最小的多模态Transformer方法。ViLT使用预训练的ViT来初始化交互的transformer，这样就可以直接利用交互层来处理视觉特征，不需要额外增加一个视觉encoder（如Faster-RCNN）[^4]。
+
+![image-20220414185453297](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141854384.png)
+
+
+
+
+
+
 
 
 
