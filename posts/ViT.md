@@ -231,3 +231,5 @@ ViT并不像CNN那样具有inductive bias，论文中发现如果如果直接在
 
 ![image-20220414170422816](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141704934.png)
 
+
+
