@@ -1,6 +1,6 @@
 ---
-title: DGST a Dual-Generator Network for Text Style Transfer
-date: 2020-05-10 09:54:00
+title: 文本风格迁移
+date: 2022-05-10 09:54:00
 
 ---
 
@@ -130,13 +130,17 @@ vaild.original: Besides , she uses me with a more exalted respect than anyone el
 
 
 
-## DGST 论文概述
+
+
+## Unsupervised (Non-parallel Data)
+
+### DGST: a Dual-Generator Network for Text Style Transfer [EMNLP 2020]
+
+
 
 论文提出了一个 DGST 神经网络。该模型抛弃了鉴别器和平行语料，只使用两个生成器就可以完成文本风格迁移的任务。论文设计了一种句子去噪的方法，称为领域采样（neighbourhood sampling）。先给每个句子引入噪声，再使用模型完成去噪操作。
 
-
-
-## 模型结构
+#### 模型结构
 
 ![](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202205101556784.png)
 
@@ -148,7 +152,7 @@ $D(x||y)$是根据最小编辑距离测量句子之间抽象距离的函数，�
 
 作者受到CycleGan的启发，同样采用循环的形式进行训练，设计两个转换器：一个转换器将一个风格的数据转换到另一个风格的数据，另一个转换器将另一个风格的数据转换回源风格的数据。训练时设计了两个训练目标，一个确保生成文本的信息尽可能被保存；另一个将输入文本风格转换为目标风格。
 
-**CycleGan模型**
+##### **CycleGan模型**
 
 CycleGAN主要用于域迁移（Domain Adaption）领域，如图片风格迁移（image style transfer）。
 
@@ -202,10 +206,61 @@ CycleGAN主要用于域迁移（Domain Adaption）领域，如图片风格迁移
 
 
 
+## Supervised (Parallel Data)
+
+### Thank you BART!  Rewarding Pre-Trained Models Improves Formality Style Transfer [ACL 2021]
+
+由于平行语料的稀缺导致文本风格迁移任务在内容保存部分效果较差。作者使用 GPT-2 和 BART 提高了内容保存的能力。实验证明，对预训练语言模型进行微调是一种
+
+
+
+
+
+
+
+
+
+
+
+### Formality Style Transfer with Shared Latent Space [COLING 2020]
+
+平行语料下的文本风格迁移通常借助机器翻译的模型，但是这通常需要大量的平行数据进行训练，而文本风格迁移的数据集通常都比较小。论文提出一种基于 Shared Latent Space 的 Seq2Seq 模型 S2S-SLS。这个方法引入了两个辅助损失，并且采用了双向迁移（bi-directional transfer）和自动编码（auto-encoding）的联合训练。实验表明，S2S-SLS 无论使用 RNN 还是 Transformer 架构，在数据有限的情况下效果始终优于基线。
+
+
+
+
+
+### Automatically Neutralizing Subjective Bias in Text [AAAI, 2020]
+
+论文提出了一个将带有偏见（主观观点）文本转换为中立文本的任务。作者整理了一个带偏见文本和中立文本的平行语料库。该语料库总共包含180,000条来自维基百科的句子对。作者最后还设计了两个基线。
+
+
+
+
+
+### Harnessing Pre-Trained Neural Networks with Rules for Formality Style Transfer [EMNLP-2019]
+
+将口语文本转换为正式文本的任务早先的做法是使用规则将非正式的文本进行规范化。即使在使用神经网络时期，基于规则的处理仍然是必要的预处理，但是这样的做法可能会引入噪声。论文研究了如何将规则应用在一个神经网络中，并提出了 三种微调方法。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 参考资料
 
 [^1]:[文本风格迁移研究综述](http://www.jos.org.cn/jos/article/abstract/6544)
 [^2]:[**DGST: a Dual-Generator Network for Text Style Transfer**](https://readpaper.com/paper/3097466938)
 [^3]:[**Semi-supervised Text Style Transfer: Cross Projection in Latent Space.**](https://readpaper.com/paper/2971232986)
 [^4]:[CycleGAN简介](https://zhuanlan.zhihu.com/p/507840466)
-
+[^5]:[**Formality Style Transfer with Shared Latent Space**](https://readpaper.com/paper/3115113481)
+[^6]:[**Automatically Neutralizing Subjective Bias in Text**](https://readpaper.com/paper/2990530823)
