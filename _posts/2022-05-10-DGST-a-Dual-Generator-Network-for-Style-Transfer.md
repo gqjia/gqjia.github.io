@@ -1,5 +1,5 @@
 ---
-title: DGST a Dual-Generator Network for Text Style Transfer [EMNLP 2020]
+title: 【论文笔记】 DGST a Dual-Generator Network for Text Style Transfer [EMNLP 2020]
 date: 2022-05-10 09:54:00
 
 ---

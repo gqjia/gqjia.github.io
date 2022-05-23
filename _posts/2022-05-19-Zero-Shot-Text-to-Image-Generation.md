@@ -1,5 +1,5 @@
 ---
-title: DALL-E Zero-Shot Text-to-Image Genration
+title: 【论文笔记】 DALL-E Zero-Shot Text-to-Image Genration
 date: 2022-05-19 14:41:00
 
 ---

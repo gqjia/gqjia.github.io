@@ -1,7 +1,6 @@
 ---
 title: 文本风格迁移任务
 date: 2022-05-23 10:10:10
-
 ---
 
 
@@ -201,5 +200,5 @@ vaild.original: Besides , she uses me with a more exalted respect than anyone el
 [^3]: [**Semi-supervised Text Style Transfer: Cross Projection in Latent Space.**](https://readpaper.com/paper/2971232986)
 [^4]: [CycleGAN简介](https://zhuanlan.zhihu.com/p/507840466)
 [^5]: [**Formality Style Transfer with Shared Latent Space**](https://readpaper.com/paper/3115113481)
-[^6]: [**Automatically Neutralizing Subjective Bias in Text**](
+[^6]: [**Automatically Neutralizing Subjective Bias in Text**](https://readpaper.com/paper/2990530823)
 
