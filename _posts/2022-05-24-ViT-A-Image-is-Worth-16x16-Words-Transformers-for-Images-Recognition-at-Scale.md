@@ -1,4 +1,11 @@
-# ViT: A Image is Worth 16x16 Words Transormers for Image Recognition at Scale
+---
+title: 【论文笔记】 ViT A Image is Worth 16x16 Words Transformers for Image Recognition at Scale
+date: 2024-05-24 09:53:01
+---
+
+
+
+
 
 论文一作是 Alexey Dosovitskiy 、 Kucas Beyer 、 Alexander Kolesnikov 、 Drik Weissenborn 、Xiaohua Zhai
 

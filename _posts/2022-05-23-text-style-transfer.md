@@ -1,5 +1,5 @@
 ---
-title: 文本风格迁移任务
+title: 文本风格迁移任务总结
 date: 2022-05-23 10:10:10
 ---
 
@@ -147,15 +147,7 @@ vaild.original: Besides , she uses me with a more exalted respect than anyone el
 
 ### Thank you BART!  Rewarding Pre-Trained Models Improves Formality Style Transfer [ACL 2021]
 
-由于平行语料的稀缺导致文本风格迁移任务在内容保存部分效果较差。作者使用 GPT-2 和 BART 提高了内容保存的能力。实验证明，对预训练语言模型进行微调是一种
-
-
-
-
-
-
-
-
+由于平行语料的稀缺导致文本风格迁移任务在内容保存部分效果较差。作者使用 GPT-2 和 BART 提高了内容保存的能力。实验证明，对预训练语言模型进行微调是在数据量比较少的情况下也能取得比较好的效果。通过对文本风格和文本内容两方面进行奖励，模型在数据上取得SOTA。
 
 
 
@@ -165,27 +157,15 @@ vaild.original: Besides , she uses me with a more exalted respect than anyone el
 
 
 
-
-
 ### Automatically Neutralizing Subjective Bias in Text [AAAI, 2020]
 
 论文提出了一个将带有偏见（主观观点）文本转换为中立文本的任务。作者整理了一个带偏见文本和中立文本的平行语料库。该语料库总共包含180,000条来自维基百科的句子对。作者最后还设计了两个基线。
 
 
 
-
-
 ### Harnessing Pre-Trained Neural Networks with Rules for Formality Style Transfer [EMNLP-2019]
 
 将口语文本转换为正式文本的任务早先的做法是使用规则将非正式的文本进行规范化。即使在使用神经网络时期，基于规则的处理仍然是必要的预处理，但是这样的做法可能会引入噪声。论文研究了如何将规则应用在一个神经网络中，并提出了 三种微调方法。
-
-
-
-
-
-
-
-
 
 
 

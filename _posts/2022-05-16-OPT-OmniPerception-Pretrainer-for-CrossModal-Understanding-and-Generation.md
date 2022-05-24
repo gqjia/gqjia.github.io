@@ -1,5 +1,5 @@
 ---
-title: 【论文笔记】 OPT Omni-Perception Pre-Trainer for Cross-Modal Understanding and Generation
+title: 另一个 OPT
 date: 2022-05-16 19:54:00
 ---
 
