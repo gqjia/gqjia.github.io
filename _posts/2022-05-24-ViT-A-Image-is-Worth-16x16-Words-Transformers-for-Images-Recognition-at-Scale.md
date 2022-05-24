@@ -208,14 +208,6 @@ class ViTEmbeddings(nn.Module):
 
 
 
-
-
-
-
-
-
-
-
 ## 模型试验
 
 作者设计了三个尺度的 ViT 模型：
