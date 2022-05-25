@@ -198,14 +198,6 @@ class ViTEmbeddings(nn.Module):
 
 
 
-### ViT 的预训练
-
-
-
-
-
-
-
 
 
 ## 模型试验
