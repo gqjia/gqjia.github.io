@@ -1,6 +1,6 @@
 ---
-title: 【论文笔记】 ViT A Image is Worth 16x16 Words Transformers for Image Recognition at Scale
-date: 2024-05-24 09:53:01
+title: 如何把 Transformer 应用到图像领域
+date: 2022-05-24 09:53:01
 ---
 
 
