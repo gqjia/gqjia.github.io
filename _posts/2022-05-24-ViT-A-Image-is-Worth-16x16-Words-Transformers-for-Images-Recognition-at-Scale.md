@@ -218,7 +218,7 @@ ViT并不像CNN那样具有inductive bias，论文中发现如果如果直接在
 
 ![image-20220414170318207](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141703269.png)
 
-当然，ViT还可以根据attention map来可视化模型具体关注图像的哪个部分，从结果上看比较合理[^5]：
+当然，ViT还可以根据attention map来可视化模型具体关注图像的哪个部分，从结果上看比较合理：
 
 ![image-20220414170422816](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204141704934.png)
 
