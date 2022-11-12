@@ -1,8 +1,8 @@
 # ----------- CONFIGURABLE START -----------
 title:            "Moriarty12138"
 description:      "I walk in the rain."
-url:              https://Moriarty12138.github.io # Site url, without a slash at the end.
-signoff:          "Moriarty12138" # Your name
+url:              https://sh1y111.github.io # Site url, without a slash at the end.
+signoff:          "sh1y1" # Your name
 facebook_appid:   # APP ID for like button, remove from /_includes/share.html if unwanted.
 google_analytics: # Set tracking, remove from /javascripts/basic.js if unwanted.
 share:            false # Turn on twitter and facebook share buttons
