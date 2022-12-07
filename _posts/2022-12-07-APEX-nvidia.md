@@ -20,3 +20,6 @@ python setup.py install --cpp_ext --cuda_ext
 
 直接按照官方 github 上的操作会有各种问题。
 后续看看 Megatron-LM 可不可以避免使用 apex 吧。毕竟现在 pytorch 都已经 2.0 了嘛。
+
+
+p.s.  chatgpt 真牛逼！
