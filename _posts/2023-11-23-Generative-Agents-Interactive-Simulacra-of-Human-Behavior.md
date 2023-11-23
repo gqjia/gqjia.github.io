@@ -2,8 +2,6 @@
 title:  论文笔记 Generative Agents Interactive Simulacra of Human Behavior
 date: 2023-11-23 11-22-19
 ---
-# 论文笔记 Generative Agents: Interactive Simulacra of Human Behavior
-
 
 
 作者： 
