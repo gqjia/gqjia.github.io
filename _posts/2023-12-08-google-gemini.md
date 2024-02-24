@@ -1,5 +1,5 @@
 ---
-title: google gemini
+title: gemini 技术报告
 date: 2023-12-08 15-48-22
 ---
 
