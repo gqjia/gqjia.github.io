@@ -54,7 +54,7 @@ $$p_n = \frac{\sum_{C \in \{Candidates\}}\sum_{n-gram \in C} Count_{clip}(n\mbox
 论文对两个效果差异很大的两个翻译系统在相同条件（127条源文本、每条4个参考翻译）下进行比较，统计平均得分。
 如下图所示，modified n-gram precision 可以很好的区分翻译系统的优劣。
 
-![Figure 1](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415168.png)
+![Figure 1](https://gqjia-images-1254146217.cos.ap-nanjing.myqcloud.com/gqjia-post202403141028783.png)
 
 论文还对 n-gram 的取值进行了实验，在相同的实验条件（两个人工翻译、三个机器翻译系统）下，
 依旧保持了不错的区分性，并且在 n-gram 的取值上都包含足够的信息。
@@ -63,7 +63,7 @@ $$p_n = \frac{\sum_{C \in \{Candidates\}}\sum_{n-gram \in C} Count_{clip}(n\mbox
 modified bigram precision 又远大于 modified trigram precision），
 又考虑到了各个取值上包含的信息。
 
-![Figure 2](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202204111415430.png)
+![Figure 2](https://gqjia-images-1254146217.cos.ap-nanjing.myqcloud.com/gqjia-post202403141028825.png)
 
 虽然 modified n-gram precision 可以惩罚没有出现在参考文本中的 n-gram，
 并且限制一个 n-gram 的统计次数（最大值限制为单个参考文本最大出现次数），

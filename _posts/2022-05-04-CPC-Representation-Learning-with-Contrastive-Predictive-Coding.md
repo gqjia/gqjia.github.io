@@ -7,7 +7,7 @@ date: 2022-05-04 10:31:00
 
 
 
-![image-20220504183535570](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202205041835697.png)
+![image-20220504183535570](https://gqjia-images-1254146217.cos.ap-nanjing.myqcloud.com/gqjia-post202403141031125.png)
 
 CPC 是 DeepMind 2018年提出的论文。论文一作是 Aaron van den Oord ，他同时也是 VQ-VAE 的一作。
 
@@ -31,7 +31,7 @@ Latent Space在机器学习和深度学习中都是一个十分重要的概念�
 
 > The concept of “latent space” is important because it is utility is at the core of ‘deep learning’ —learning the features of data and simplifying data representations for the purpose of finding patterns.
 
-![image-20220505102100640](https://raw.githubusercontent.com/Moriarty12138/PictureBed/main/img/202205051022718.png)
+![image-20220505102100640](https://gqjia-images-1254146217.cos.ap-nanjing.myqcloud.com/gqjia-post202403141031542.png)
 
 我们来训练一个模型来使用完全卷积神经网络 (FCN) 对图像进行分类。 （即给定数字图像的输出数字编号）。 当模型“学习”时，它只是简单地学习每一层（边缘、角度等）的特征，并将特征组合归因于特定的输出。因为模型需要重建压缩数据，所以它必须学会存储所有相关信息并忽略噪声。 这就是数据压缩的价值——**它允许我们摆脱任何无关的信息，只关注最重要的特征**。
 
