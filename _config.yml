@@ -11,12 +11,32 @@ links:
   - name:         Posts
     url:          /
     external:     false
+  - name:         Archive
+    url:          /archive
+    external:     false
   - name:         About me
     url:          /about
     external:     false
 # ------------ CONFIGURABLE END ------------
 
+# Comments (Giscus)
+giscus:
+  repo:             "username/repo" # Change this
+  repo_id:          "" # Change this
+  category:         "Announcements" # Change this
+  category_id:      "" # Change this
+  mapping:          "pathname"
+  input_position:   "top"
+  theme:            "light"
+  lang:             "zh-CN"
+
 permalink:        /posts/:title
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
 defaults:
   - values:
       layout: "default"

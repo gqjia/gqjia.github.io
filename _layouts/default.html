@@ -2,9 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta content='{{ page.title }} - {{ site.title }}' name='title' />
-    <meta content='{{ page.title }} - {{ site.title }}' name='og:title' />
-    <title>{{ page.title }} - {{ site.title }}</title>
     <script>
       window.MathJax = {
         tex: {
@@ -50,6 +47,7 @@
           {{ content }}
         </div>
         {% if is_post %}{% include signoff.html %}{% endif %}
+        {% if is_post %}{% include giscus.html %}{% endif %}
       </main>
       {% if is_post %}{% include pagination.html %}{% endif %}
     </div>
