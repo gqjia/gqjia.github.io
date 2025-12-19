@@ -21,10 +21,10 @@ links:
 
 # Comments (Giscus)
 giscus:
-  repo:             "username/repo" # Change this
-  repo_id:          "" # Change this
-  category:         "Announcements" # Change this
-  category_id:      "" # Change this
+  repo:             "gqjia/gqjia.github.io" # 已自动填充
+  repo_id:          "MDEwOlJlcG9zaXRvcnkxNTM4ODQwOTI=" # 需手动获取
+  category:         "Announcements" # 推荐使用 Announcements
+  category_id:      "DIC_kwDOCSwVvM4Cz_cw" # 需手动获取
   mapping:          "pathname"
   input_position:   "top"
   theme:            "light"
