@@ -1,19 +1,18 @@
 {% assign is_post = page.date %}
-<!doctype>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta content='{{ page.title }} - {{ site.title }}' name='title' />
     <meta content='{{ page.title }} - {{ site.title }}' name='og:title' />
     <title>{{ page.title }} - {{ site.title }}</title>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    <script>
+      window.MathJax = {
+        tex: {
           inlineMath: [['$','$']]
         }
-      });
+      };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     {% include head.html %}
   </head>
   <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
@@ -44,8 +43,6 @@
             </h1>
             {% if is_post and site.share %}
               <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
-              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-              <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-action="like"></div>
             {% endif %}
           </div>
         {% endif %}
